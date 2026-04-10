@@ -13,8 +13,15 @@
       <div>
         <h1>PM Shooter <span class="accent">Warsaw</span></h1>
         <p class="subtitle">Catálogo de armas con precio por disparo · <a href="https://www.pmshooter.pl/index.php/pl/arsenal" target="_blank" rel="noopener">sitio oficial</a></p>
+        <p class="fx-info" id="fxInfo">cargando tasa de cambio…</p>
       </div>
-      <div class="stats" id="stats">cargando…</div>
+      <div class="header-right">
+        <div class="currency-toggle" id="currencyToggle" role="tablist" aria-label="Moneda">
+          <button class="active" data-curr="PLN" type="button">PLN</button>
+          <button data-curr="EUR" type="button">€</button>
+        </div>
+        <div class="stats" id="stats">cargando…</div>
+      </div>
     </div>
     <input type="search" id="search" placeholder="Buscar arma o calibre… (ej. MP40, AK, 9mm)" autocomplete="off" autocorrect="off" autocapitalize="off">
     <div class="filters">
@@ -48,6 +55,29 @@
     <div id="grid" class="grid"></div>
     <p id="empty" class="empty hidden">No hay armas que coincidan con el filtro.</p>
   </main>
+
+  <aside id="pack" class="pack hidden" aria-label="Mi pack personalizado">
+    <button type="button" id="packToggle" class="pack-toggle" aria-expanded="false">
+      <span class="pack-badge" id="packBadge">0</span>
+      <span class="pack-toggle-text">Mi pack</span>
+      <span class="pack-toggle-total" id="packToggleTotal">—</span>
+      <span class="pack-caret" aria-hidden="true">▴</span>
+    </button>
+    <div class="pack-body" id="packBody" hidden>
+      <header class="pack-header">
+        <h3>Mi pack personalizado</h3>
+        <button type="button" id="packClear" class="pack-clear">Vaciar</button>
+      </header>
+      <ul id="packList" class="pack-list"></ul>
+      <footer class="pack-footer">
+        <div class="pack-totals">
+          <span id="packTotalShots">0 disparos</span>
+          <strong id="packTotalMain">0 PLN</strong>
+          <span id="packTotalAlt" class="pack-total-alt">≈ 0 €</span>
+        </div>
+      </footer>
+    </div>
+  </aside>
 
   <footer>
     <p><strong>*</strong> El precio marcado con asterisco es inferido a partir del precio base del calibre (no está nombrado explícitamente en la oferta oficial). Confirmar en el campo de tiro antes de disparar.</p>
