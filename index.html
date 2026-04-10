@@ -10,41 +10,48 @@
 <body>
   <header class="site-header">
     <div class="header-top">
-      <div>
-        <h1>PM Shooter <span class="accent">Warsaw</span></h1>
-        <p class="subtitle">Catálogo de armas con precio por disparo · <a href="https://www.pmshooter.pl/index.php/pl/arsenal" target="_blank" rel="noopener">sitio oficial</a></p>
-        <p class="fx-info" id="fxInfo">cargando tasa de cambio…</p>
+      <div class="header-left">
+        <h1>PM Shooter <span class="accent" data-i18n="brandCity">Warsaw</span></h1>
+        <p class="subtitle" data-i18n-html="subtitle">Catálogo de armas con precio por disparo · <a href="https://www.pmshooter.pl/index.php/pl/arsenal" target="_blank" rel="noopener">sitio oficial</a></p>
+        <p class="fx-info" id="fxInfo">…</p>
       </div>
       <div class="header-right">
-        <div class="currency-toggle" id="currencyToggle" role="tablist" aria-label="Moneda">
-          <button class="active" data-curr="PLN" type="button">PLN</button>
-          <button data-curr="EUR" type="button">€</button>
+        <div class="toggles-row">
+          <div class="lang-toggle" id="langToggle" role="tablist" aria-label="Language">
+            <button data-lang="es" type="button">ES</button>
+            <button data-lang="en" type="button">EN</button>
+            <button data-lang="pl" type="button">PL</button>
+          </div>
+          <div class="currency-toggle" id="currencyToggle" role="tablist" aria-label="Currency">
+            <button data-curr="PLN" type="button">PLN</button>
+            <button data-curr="EUR" type="button">€</button>
+          </div>
         </div>
-        <div class="stats" id="stats">cargando…</div>
+        <div class="stats" id="stats">…</div>
       </div>
     </div>
-    <input type="search" id="search" placeholder="Buscar arma o calibre… (ej. MP40, AK, 9mm)" autocomplete="off" autocorrect="off" autocapitalize="off">
+    <input type="search" id="search" data-i18n-placeholder="searchPlaceholder" placeholder="Buscar arma o calibre… (ej. MP40, AK, 9mm)" autocomplete="off" autocorrect="off" autocapitalize="off">
     <div class="filters">
       <div class="filter-group" id="categoryFilters">
-        <button class="chip active" data-filter="category" data-value="all">Todas</button>
-        <button class="chip" data-filter="category" data-value="Pistola">Pistolas</button>
-        <button class="chip" data-filter="category" data-value="Revólver">Revólveres</button>
-        <button class="chip" data-filter="category" data-value="Rifle">Rifles</button>
-        <button class="chip" data-filter="category" data-value="Carabina">Carabinas</button>
-        <button class="chip" data-filter="category" data-value="SMG">SMG</button>
-        <button class="chip" data-filter="category" data-value="Ametralladora">Ametralladoras</button>
-        <button class="chip" data-filter="category" data-value="Escopeta">Escopetas</button>
+        <button class="chip active" data-filter="category" data-value="all" data-i18n="filterAll">Todas</button>
+        <button class="chip" data-filter="category" data-value="Pistola" data-i18n="filterPistols">Pistolas</button>
+        <button class="chip" data-filter="category" data-value="Revólver" data-i18n="filterRevolvers">Revólveres</button>
+        <button class="chip" data-filter="category" data-value="Rifle" data-i18n="filterRifles">Rifles</button>
+        <button class="chip" data-filter="category" data-value="Carabina" data-i18n="filterCarbines">Carabinas</button>
+        <button class="chip" data-filter="category" data-value="SMG" data-i18n="filterSMG">SMG</button>
+        <button class="chip" data-filter="category" data-value="Ametralladora" data-i18n="filterMachineGuns">Ametralladoras</button>
+        <button class="chip" data-filter="category" data-value="Escopeta" data-i18n="filterShotguns">Escopetas</button>
       </div>
       <div class="filter-group" id="sectionFilters">
-        <button class="chip active" data-filter="section" data-value="all">Todas secciones</button>
-        <button class="chip" data-filter="section" data-value="malokalibrowa">Pequeño calibre</button>
-        <button class="chip" data-filter="section" data-value="bojowa">Combate</button>
-        <button class="chip" data-filter="section" data-value="maszynowa">Automáticas</button>
+        <button class="chip active" data-filter="section" data-value="all" data-i18n="filterAllSections">Todas secciones</button>
+        <button class="chip" data-filter="section" data-value="malokalibrowa" data-i18n="filterSmallCaliber">Pequeño calibre</button>
+        <button class="chip" data-filter="section" data-value="bojowa" data-i18n="filterCombat">Combate</button>
+        <button class="chip" data-filter="section" data-value="maszynowa" data-i18n="filterFullAuto">Automáticas</button>
       </div>
       <div class="filter-group">
         <label class="switch">
           <input type="checkbox" id="explicitOnly">
-          <span>Solo precio confirmado</span>
+          <span data-i18n="explicitOnly">Solo precio confirmado</span>
         </label>
         <button class="chip sort-chip" id="sortBtn" data-sort="section">Ordenar: sección</button>
       </div>
@@ -55,30 +62,30 @@
     <div class="pack-hint">
       <span class="pack-hint-icon">🎯</span>
       <div>
-        <strong>Crea tu pack personalizado</strong><br>
-        En cada arma, elige cuántos disparos quieres y pulsa <em>+ Añadir al pack</em>. El total aparece abajo a la derecha.
+        <strong data-i18n="packHintTitle">Crea tu pack personalizado</strong><br>
+        <span data-i18n-html="packHintBody">En cada arma, elige cuántos disparos quieres y pulsa <em>+ Añadir al pack</em>. El total aparece abajo a la derecha.</span>
       </div>
     </div>
     <div id="grid" class="grid"></div>
-    <p id="empty" class="empty hidden">No hay armas que coincidan con el filtro.</p>
+    <p id="empty" class="empty hidden" data-i18n="empty">No hay armas que coincidan con el filtro.</p>
   </main>
 
-  <aside id="pack" class="pack hidden" aria-label="Mi pack personalizado">
+  <aside id="pack" class="pack hidden" aria-label="My custom pack">
     <button type="button" id="packToggle" class="pack-toggle" aria-expanded="false">
       <span class="pack-badge" id="packBadge">0</span>
-      <span class="pack-toggle-text">Mi pack</span>
+      <span class="pack-toggle-text" data-i18n="myPack">Mi pack</span>
       <span class="pack-toggle-total" id="packToggleTotal">—</span>
       <span class="pack-caret" aria-hidden="true">▴</span>
     </button>
     <div class="pack-body" id="packBody" hidden>
       <header class="pack-header">
-        <h3>Mi pack personalizado</h3>
-        <button type="button" id="packClear" class="pack-clear">Vaciar</button>
+        <h3 data-i18n="myPackTitle">Mi pack personalizado</h3>
+        <button type="button" id="packClear" class="pack-clear" data-i18n="clear">Vaciar</button>
       </header>
       <ul id="packList" class="pack-list"></ul>
       <footer class="pack-footer">
         <div class="pack-totals">
-          <span id="packTotalShots">0 disparos</span>
+          <span id="packTotalShots">0</span>
           <strong id="packTotalMain">0 PLN</strong>
         </div>
       </footer>
@@ -86,9 +93,9 @@
   </aside>
 
   <footer>
-    <p><strong>*</strong> El precio marcado con asterisco es inferido a partir del precio base del calibre (no está nombrado explícitamente en la oferta oficial). Confirmar en el campo de tiro antes de disparar.</p>
-    <p>Precios en PLN oficiales extraídos de <a href="https://www.pmshooter.pl/index.php/pl/oferta" target="_blank" rel="noopener">pmshooter.pl/oferta</a>. Conversión EUR aproximada a 0,23 €/PLN. Imágenes propiedad de PM Shooter Warsaw.</p>
-    <p>Proyecto personal · <a href="https://github.com/Seru7/pm-shooter" target="_blank" rel="noopener">código en GitHub</a></p>
+    <p data-i18n-html="footerAsterisk"><strong>*</strong> El precio marcado con asterisco es inferido a partir del precio base del calibre (no está nombrado explícitamente en la oferta oficial). Confirmar en el campo de tiro antes de disparar.</p>
+    <p data-i18n-html="footerSource">Precios en PLN oficiales extraídos de <a href="https://www.pmshooter.pl/index.php/pl/oferta" target="_blank" rel="noopener">pmshooter.pl/oferta</a>. Conversión EUR en tiempo real vía frankfurter.dev. Imágenes propiedad de PM Shooter Warsaw.</p>
+    <p data-i18n-html="footerProject">Proyecto personal · <a href="https://github.com/Seru7/pm-shooter" target="_blank" rel="noopener">código en GitHub</a></p>
   </footer>
 
   <script src="app.js"></script>
