@@ -43,6 +43,7 @@ const I18N = {
     filterSmallCaliber: 'Pequeño calibre',
     filterCombat: 'Combate',
     filterFullAuto: 'Automáticas',
+    filtersLabel: 'Filtros',
     explicitOnly: 'Solo precio confirmado',
     sortSection: 'Ordenar: sección',
     sortPriceAsc: 'Ordenar: precio ↑',
@@ -90,6 +91,7 @@ const I18N = {
     filterSmallCaliber: 'Small caliber',
     filterCombat: 'Combat',
     filterFullAuto: 'Full-auto',
+    filtersLabel: 'Filters',
     explicitOnly: 'Confirmed price only',
     sortSection: 'Sort: section',
     sortPriceAsc: 'Sort: price ↑',
@@ -137,6 +139,7 @@ const I18N = {
     filterSmallCaliber: 'Małokalibrowa',
     filterCombat: 'Bojowa',
     filterFullAuto: 'Maszynowa',
+    filtersLabel: 'Filtry',
     explicitOnly: 'Tylko potwierdzone ceny',
     sortSection: 'Sortuj: sekcja',
     sortPriceAsc: 'Sortuj: cena ↑',
@@ -225,7 +228,9 @@ const statsEl    = $('#stats');
 const searchEl   = $('#search');
 const explicitEl = $('#explicitOnly');
 const sortBtn    = $('#sortBtn');
-const fxInfoEl   = $('#fxInfo');
+const filtersToggleBtn = $('#filtersToggle');
+const filtersPanel     = $('#filtersPanel');
+const filtersBadge     = $('#filtersActiveBadge');
 const langToggle = $('#langToggle');
 const currToggle = $('#currencyToggle');
 const packEl     = $('#pack');
@@ -349,11 +354,10 @@ async function init() {
   }
 
   state.fx = await loadFxRate();
-  updateFxInfo();
 
   // listeners
   searchEl.addEventListener('input', e => { state.search = e.target.value.trim().toLowerCase(); render(); });
-  explicitEl.addEventListener('change', e => { state.explicitOnly = e.target.checked; render(); });
+  explicitEl.addEventListener('change', e => { state.explicitOnly = e.target.checked; updateFiltersBadge(); render(); });
 
   document.querySelectorAll('.chip[data-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -361,8 +365,17 @@ async function init() {
       state[filter] = value;
       document.querySelectorAll(`.chip[data-filter="${filter}"]`)
         .forEach(b => b.classList.toggle('active', b.dataset.value === value));
+      updateFiltersBadge();
       render();
     });
+  });
+
+  // Dropdown de filtros
+  filtersToggleBtn.addEventListener('click', () => {
+    const expanded = filtersToggleBtn.getAttribute('aria-expanded') === 'true';
+    filtersToggleBtn.setAttribute('aria-expanded', String(!expanded));
+    filtersPanel.hidden = expanded;
+    filtersToggleBtn.classList.toggle('open', !expanded);
   });
 
   sortBtn.addEventListener('click', () => {
@@ -380,7 +393,6 @@ async function init() {
       langToggle.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.lang === state.lang));
       applyI18n();
       applySortLabel();
-      updateFxInfo();
       render();
       renderPack();
     });
@@ -473,21 +485,21 @@ async function init() {
     if (cardInput) cardInput.value = val;
   });
 
+  updateFiltersBadge();
   render();
   renderPack();
 }
 
-function updateFxInfo() {
-  const rateStr = state.fx.rate.toFixed(4);
-  if (state.fx.date && !state.fx.stale) {
-    fxInfoEl.textContent = t('fxLive').replace('{rate}', rateStr).replace('{date}', state.fx.date);
-    fxInfoEl.classList.remove('stale');
-  } else if (state.fx.date && state.fx.stale) {
-    fxInfoEl.textContent = t('fxStale').replace('{rate}', rateStr).replace('{date}', state.fx.date);
-    fxInfoEl.classList.add('stale');
+function updateFiltersBadge() {
+  let active = 0;
+  if (state.category !== 'all') active++;
+  if (state.section !== 'all') active++;
+  if (state.explicitOnly) active++;
+  if (active > 0) {
+    filtersBadge.textContent = String(active);
+    filtersBadge.hidden = false;
   } else {
-    fxInfoEl.textContent = t('fxNoData').replace('{rate}', rateStr);
-    fxInfoEl.classList.add('stale');
+    filtersBadge.hidden = true;
   }
 }
 
