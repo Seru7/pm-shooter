@@ -493,28 +493,13 @@ async function init() {
 
   packCopyBtn.addEventListener('click', async () => {
     if (!Object.keys(state.pack).length) return;
-    const table = buildPackTable();
     const originalLabel = t('copyTable');
-    try {
-      await navigator.clipboard.writeText(table);
+    const ok = await copyPackToClipboard();
+    if (ok) {
       packCopyBtn.textContent = t('copied');
       packCopyBtn.classList.add('copied');
-    } catch (e) {
-      // Fallback: selección + execCommand
-      try {
-        const ta = document.createElement('textarea');
-        ta.value = table;
-        ta.style.position = 'fixed';
-        ta.style.left = '-9999px';
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        packCopyBtn.textContent = t('copied');
-        packCopyBtn.classList.add('copied');
-      } catch {
-        packCopyBtn.textContent = t('copyFailed');
-      }
+    } else {
+      packCopyBtn.textContent = t('copyFailed');
     }
     setTimeout(() => {
       packCopyBtn.textContent = originalLabel;
@@ -671,12 +656,17 @@ function renderCardPackStatus(slug) {
   card.outerHTML = cardHtml(w);
 }
 
-// ---------- exportación del pack como tabla monospace ----------
-// Devuelve una tabla alineada con espacios, envuelta en ``` para que
-// WhatsApp/Telegram/Slack/Discord la rendericen con fuente monospace.
-function buildPackTable() {
+// ---------- exportación del pack ----------
+// Construimos dos formatos:
+//  1) text/html — tabla real. Gmail, Outlook, Sheets, Excel, Docs, Notion,
+//     WhatsApp Web: pegan como tabla nativa con celdas.
+//  2) text/plain — lista vertical legible con fuentes proporcionales, para
+//     WhatsApp móvil, Telegram, SMS, iMessage, donde el HTML se descarta.
+// La Clipboard API moderna copia ambos a la vez y cada app usa el que entiende.
+
+function getPackData() {
   const entries = Object.entries(state.pack);
-  const rows = [];
+  const items = [];
   let totalPLN = 0;
   let totalShots = 0;
   for (const [slug, shots] of entries) {
@@ -685,35 +675,97 @@ function buildPackTable() {
     const lineTotal = w.pricePLN * shots;
     totalPLN += lineTotal;
     totalShots += shots;
-    const nameWithMark = w.explicitPrice ? w.name : `${w.name} *`;
-    rows.push([
-      nameWithMark,
-      w.caliber,
-      String(shots),
-      formatMain(w.pricePLN),
-      formatMain(lineTotal),
-    ]);
+    items.push({ w, shots, lineTotal });
   }
-  const header = [t('tblArma'), t('tblCalibre'), t('tblDisparos'), t('tblPrecioUnit'), t('tblTotal')];
-  const totalRow = [t('tblGrandTotal'), '', String(totalShots), '', formatMain(totalPLN)];
-  const allRows = [header, ...rows, totalRow];
-  const widths = [0, 1, 2, 3, 4].map(i =>
-    Math.max(...allRows.map(r => r[i].length))
-  );
-  const alignRight = [false, false, true, true, true];
-  const padCell = (cell, i) =>
-    alignRight[i] ? cell.padStart(widths[i]) : cell.padEnd(widths[i]);
-  const formatRow = r => r.map((c, i) => padCell(c, i)).join('  ');
-  const sepLine = widths.map(w => '-'.repeat(w)).join('  ');
+  return { items, totalPLN, totalShots };
+}
 
-  const lines = [
-    formatRow(header),
-    sepLine,
-    ...rows.map(formatRow),
-    sepLine,
-    formatRow(totalRow),
-  ];
-  return '```\n' + lines.join('\n') + '\n```';
+function buildPackHTML() {
+  const { items, totalPLN, totalShots } = getPackData();
+  const headerBg = '#f5f5f5';
+  const border = '1px solid #999';
+  const cellStyle = `border:${border};padding:6px 10px;`;
+  const rows = items.map(({ w, shots, lineTotal }) => {
+    const nameWithMark = w.explicitPrice
+      ? escapeHtml(w.name)
+      : `${escapeHtml(w.name)} *`;
+    return `<tr>
+      <td style="${cellStyle}">${nameWithMark}</td>
+      <td style="${cellStyle}">${escapeHtml(w.caliber)}</td>
+      <td style="${cellStyle}text-align:right;">${shots}</td>
+      <td style="${cellStyle}text-align:right;">${escapeHtml(formatMain(w.pricePLN))}</td>
+      <td style="${cellStyle}text-align:right;font-weight:bold;">${escapeHtml(formatMain(lineTotal))}</td>
+    </tr>`;
+  }).join('');
+  return `<table style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+    <thead>
+      <tr style="background:${headerBg};">
+        <th style="${cellStyle}text-align:left;">${escapeHtml(t('tblArma'))}</th>
+        <th style="${cellStyle}text-align:left;">${escapeHtml(t('tblCalibre'))}</th>
+        <th style="${cellStyle}text-align:right;">${escapeHtml(t('tblDisparos'))}</th>
+        <th style="${cellStyle}text-align:right;">${escapeHtml(t('tblPrecioUnit'))}</th>
+        <th style="${cellStyle}text-align:right;">${escapeHtml(t('tblTotal'))}</th>
+      </tr>
+    </thead>
+    <tbody>${rows}</tbody>
+    <tfoot>
+      <tr style="background:${headerBg};font-weight:bold;">
+        <td style="${cellStyle}" colspan="2">${escapeHtml(t('tblGrandTotal'))}</td>
+        <td style="${cellStyle}text-align:right;">${totalShots}</td>
+        <td style="${cellStyle}"></td>
+        <td style="${cellStyle}text-align:right;">${escapeHtml(formatMain(totalPLN))}</td>
+      </tr>
+    </tfoot>
+  </table>`;
+}
+
+function buildPackPlain() {
+  const { items, totalPLN, totalShots } = getPackData();
+  const lines = ['🎯 PM Shooter — ' + t('myPackTitle'), ''];
+  for (const { w, shots, lineTotal } of items) {
+    const mark = w.explicitPrice ? '' : ' *';
+    lines.push(`• ${w.name}${mark} (${w.caliber})`);
+    lines.push(`   ${shots} × ${formatMain(w.pricePLN)} = ${formatMain(lineTotal)}`);
+  }
+  lines.push('');
+  lines.push('━━━━━━━━━━━━━━━━━');
+  lines.push(`${t('tblGrandTotal')}: ${totalShots} ${pluralShots(totalShots)} · ${formatMain(totalPLN)}`);
+  return lines.join('\n');
+}
+
+async function copyPackToClipboard() {
+  const html = buildPackHTML();
+  const plain = buildPackPlain();
+  // Intento 1: copiar ambos formatos (HTML + plain). Gmail/Sheets cogen HTML, WhatsApp coge plain.
+  try {
+    if (navigator.clipboard && typeof ClipboardItem !== 'undefined') {
+      const item = new ClipboardItem({
+        'text/html': new Blob([html], { type: 'text/html' }),
+        'text/plain': new Blob([plain], { type: 'text/plain' }),
+      });
+      await navigator.clipboard.write([item]);
+      return true;
+    }
+  } catch (e) { /* cae al fallback */ }
+  // Intento 2: solo texto plano
+  try {
+    await navigator.clipboard.writeText(plain);
+    return true;
+  } catch (e) { /* cae al fallback */ }
+  // Intento 3: textarea + execCommand (navegadores viejos)
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = plain;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  } catch (e) {
+    return false;
+  }
 }
 
 // ---------- pack panel ----------
