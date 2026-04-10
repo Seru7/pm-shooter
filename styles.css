@@ -37,7 +37,7 @@ a:hover { text-decoration: underline; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  padding: 20px 24px 16px;
+  padding: calc(20px + env(safe-area-inset-top)) calc(24px + env(safe-area-inset-right)) 16px calc(24px + env(safe-area-inset-left));
 }
 
 .header-top {
@@ -509,6 +509,7 @@ main {
   font-size: 14px;
   font-weight: 600;
   text-align: left;
+  min-width: 0;
 }
 .pack-toggle:hover { background: linear-gradient(135deg, #222, #111); }
 
@@ -524,22 +525,30 @@ main {
   border-radius: 999px;
   font-size: 12px;
   font-weight: 800;
+  flex-shrink: 0;
 }
 
 .pack-toggle-text {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pack-toggle-total {
   color: var(--green);
   font-size: 15px;
   font-weight: 800;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .pack-caret {
   color: var(--text-dim);
   font-size: 12px;
   transition: transform 0.2s ease;
+  flex-shrink: 0;
 }
 .pack.open .pack-caret { transform: rotate(180deg); }
 
@@ -699,9 +708,17 @@ footer {
 footer p + p { margin-top: 6px; }
 
 @media (max-width: 700px) {
-  .site-header { padding: 14px 16px 12px; }
+  .site-header {
+    padding: calc(14px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 12px calc(16px + env(safe-area-inset-left));
+  }
   h1 { font-size: 22px; }
-  main { padding: 16px; padding-bottom: 100px; }
+  main {
+    padding: 16px;
+    padding-bottom: 120px;
+    padding-left: calc(16px + env(safe-area-inset-left));
+    padding-right: calc(16px + env(safe-area-inset-right));
+  }
+  .sort-chip { margin-left: 0; }
   .pack-hint { padding: 12px 14px; font-size: 13px; gap: 10px; margin-bottom: 14px; }
   .pack-hint strong { font-size: 14px; }
   .pack-hint-icon { font-size: 22px; }
@@ -720,6 +737,9 @@ footer p + p { margin-top: 6px; }
     border-bottom: none;
     border-left: none;
     border-right: none;
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
   .pack-body { max-height: 70vh; }
   .pack-item {
