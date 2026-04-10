@@ -85,9 +85,9 @@ h1 .accent {
 }
 
 .fx-info {
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 6px;
   letter-spacing: 0.2px;
 }
 .fx-info.stale {
@@ -208,6 +208,35 @@ main {
   padding: 24px;
 }
 
+/* --- Hint banner para crear pack --- */
+.pack-hint {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(255, 107, 26, 0.14), rgba(255, 107, 26, 0.04));
+  border: 1px solid var(--accent-dim);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.pack-hint strong { color: var(--accent); font-size: 15px; }
+.pack-hint em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 700;
+  background: rgba(255, 107, 26, 0.15);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.pack-hint-icon {
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
 .section-heading {
   grid-column: 1 / -1;
   font-size: 12px;
@@ -305,7 +334,7 @@ main {
 }
 
 .price-main {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   color: var(--green);
   letter-spacing: -0.5px;
@@ -317,10 +346,12 @@ main {
   vertical-align: super;
   margin-left: 2px;
 }
-
-.price-alt {
-  font-size: 12px;
+.price-main .price-unit {
+  font-size: 11px;
+  font-weight: 500;
   color: var(--text-dim);
+  margin-left: 4px;
+  letter-spacing: 0;
 }
 
 .card.inferred .price-main { color: var(--yellow); }
@@ -329,20 +360,28 @@ main {
 /* --- Controles de añadir al pack en cada card --- */
 .card-pack {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.card-pack-shots {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--border);
+  gap: 8px;
+  justify-content: center;
 }
 .card-pack input[type="number"] {
-  width: 54px;
+  width: 68px;
   background: #0b0b0b;
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 5px 6px;
+  padding: 8px 8px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
   font-family: inherit;
   -moz-appearance: textfield;
 }
@@ -353,32 +392,46 @@ main {
 }
 .card-pack input[type="number"]:focus { outline: none; border-color: var(--accent); }
 .card-pack-label {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-dim);
-  margin-right: auto;
+  font-weight: 500;
 }
 .btn-pack {
-  background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 6px;
+  display: block;
+  width: 100%;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 12px;
+  border-radius: 8px;
   cursor: pointer;
   font-family: inherit;
   white-space: nowrap;
   transition: all 0.15s ease;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 10px rgba(255, 107, 26, 0.25);
 }
-.btn-pack:hover { background: var(--accent); color: #fff; }
+.btn-pack:hover {
+  background: #ff7d35;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 107, 26, 0.4);
+}
 .btn-pack.btn-remove {
-  border-color: var(--red);
-  color: var(--red);
+  background: transparent;
+  border: 1.5px solid var(--green);
+  color: var(--green);
+  box-shadow: none;
 }
-.btn-pack.btn-remove:hover { background: var(--red); color: #fff; }
+.btn-pack.btn-remove:hover {
+  background: rgba(74, 222, 128, 0.1);
+  transform: none;
+  box-shadow: none;
+}
 .card.in-pack {
   border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent-dim) inset;
+  box-shadow: 0 0 0 1px var(--accent-dim) inset, 0 4px 20px rgba(255, 107, 26, 0.15);
 }
 
 .empty {
@@ -460,6 +513,7 @@ main {
   display: flex;
   flex-direction: column;
 }
+.pack-body[hidden] { display: none; }
 
 .pack-header {
   display: flex;
@@ -553,17 +607,14 @@ main {
 
 .pack-item-total {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-end;
   min-width: 70px;
 }
 .pack-item-total strong {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--green);
-}
-.pack-item-total span {
-  font-size: 10px;
-  color: var(--text-dim);
+  font-weight: 800;
 }
 
 .pack-item-remove {
@@ -590,14 +641,10 @@ main {
   gap: 10px;
 }
 .pack-totals strong {
-  font-size: 22px;
+  font-size: 24px;
   color: var(--green);
   font-weight: 800;
   letter-spacing: -0.5px;
-}
-.pack-total-alt {
-  font-size: 12px;
-  color: var(--text-dim);
 }
 #packTotalShots {
   font-size: 12px;
@@ -619,9 +666,12 @@ footer p + p { margin-top: 6px; }
   .site-header { padding: 14px 16px 12px; }
   h1 { font-size: 22px; }
   main { padding: 16px; padding-bottom: 100px; }
+  .pack-hint { padding: 12px 14px; font-size: 13px; gap: 10px; margin-bottom: 14px; }
+  .pack-hint strong { font-size: 14px; }
+  .pack-hint-icon { font-size: 22px; }
   .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
   .card-name { font-size: 13px; }
-  .price-main { font-size: 18px; }
+  .price-main { font-size: 20px; }
   .stats { display: none; }
   .header-right { align-items: flex-start; }
 
@@ -650,11 +700,7 @@ footer p + p { margin-top: 6px; }
   .pack-item-total { grid-area: total; }
   .pack-item-remove { grid-area: remove; justify-self: end; }
 
-  .card-pack input[type="number"] { width: 48px; }
-  .card-pack-label { font-size: 10px; }
-  .btn-pack { font-size: 11px; padding: 4px 8px; }
-}
-
-@media (max-width: 400px) {
-  .card-pack { flex-wrap: wrap; }
+  .card-pack input[type="number"] { width: 56px; padding: 6px; font-size: 14px; }
+  .card-pack-label { font-size: 11px; }
+  .btn-pack { font-size: 13px; padding: 9px 10px; }
 }

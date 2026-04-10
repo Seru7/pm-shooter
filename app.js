@@ -42,7 +42,6 @@ const packToggleTotal = $('#packToggleTotal');
 const packListEl      = $('#packList');
 const packTotalShots  = $('#packTotalShots');
 const packTotalMain   = $('#packTotalMain');
-const packTotalAlt    = $('#packTotalAlt');
 const packClearBtn    = $('#packClear');
 
 // ---------- persistencia ----------
@@ -102,9 +101,6 @@ function fmtEUR(v) {
 function toEUR(pln) { return pln * state.fx.rate; }
 function formatMain(pln) {
   return state.currency === 'EUR' ? fmtEUR(toEUR(pln)) : fmtPLN(pln);
-}
-function formatAlt(pln) {
-  return state.currency === 'EUR' ? fmtPLN(pln) : '≈ ' + fmtEUR(toEUR(pln));
 }
 
 // ---------- init ----------
@@ -315,17 +311,18 @@ function cardHtml(w) {
   const currentShots = inPack ? state.pack[w.slug] : 10;
 
   const priceHtml = hasPrice
-    ? `<div class="price-main">${formatMain(w.pricePLN)}${!w.explicitPrice ? '<span class="asterisk">*</span>' : ''}</div>
-       <div class="price-alt">${formatAlt(w.pricePLN)}</div>`
+    ? `<div class="price-main">${formatMain(w.pricePLN)}${!w.explicitPrice ? '<span class="asterisk">*</span>' : ''}<span class="price-unit">/disparo</span></div>`
     : `<div class="price-main no-data">consultar</div>`;
 
   const packControlsHtml = hasPrice
     ? `<div class="card-pack">
-         <input type="number" min="1" max="999" value="${currentShots}" data-shots-for="${w.slug}" aria-label="Disparos">
-         <span class="card-pack-label">disparos</span>
+         <div class="card-pack-shots">
+           <input type="number" min="1" max="999" value="${currentShots}" data-shots-for="${w.slug}" aria-label="Número de disparos">
+           <span class="card-pack-label">disparos</span>
+         </div>
          ${inPack
-           ? `<button type="button" class="btn-pack btn-remove" data-action="remove-from-pack" data-slug="${w.slug}">Quitar</button>`
-           : `<button type="button" class="btn-pack btn-add" data-action="add-to-pack" data-slug="${w.slug}">+ Añadir</button>`}
+           ? `<button type="button" class="btn-pack btn-remove" data-action="remove-from-pack" data-slug="${w.slug}">✓ En el pack — quitar</button>`
+           : `<button type="button" class="btn-pack btn-add" data-action="add-to-pack" data-slug="${w.slug}">+ Añadir al pack</button>`}
        </div>`
     : '';
 
@@ -392,7 +389,6 @@ function renderPack() {
         </div>
         <div class="pack-item-total">
           <strong>${formatMain(lineTotalPLN)}</strong>
-          <span>${formatAlt(lineTotalPLN)}</span>
         </div>
         <button type="button" class="pack-item-remove" data-pack-remove="${slug}" aria-label="Quitar">×</button>
       </li>
@@ -402,7 +398,6 @@ function renderPack() {
   packListEl.innerHTML = rows;
   packTotalShots.textContent = `${totalShots} disparos · ${count} ${count === 1 ? 'arma' : 'armas'}`;
   packTotalMain.textContent = formatMain(totalPLN);
-  packTotalAlt.textContent = formatAlt(totalPLN);
   packToggleTotal.textContent = formatMain(totalPLN);
 }
 
