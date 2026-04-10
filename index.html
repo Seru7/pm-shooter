@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>PM Shooter — Catálogo de armas y precios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <div>
+        <h1>PM Shooter <span class="accent">Warsaw</span></h1>
+        <p class="subtitle">Catálogo de armas con precio por disparo · <a href="https://www.pmshooter.pl/index.php/pl/arsenal" target="_blank" rel="noopener">sitio oficial</a></p>
+      </div>
+      <div class="stats" id="stats">cargando…</div>
+    </div>
+    <input type="search" id="search" placeholder="Buscar arma o calibre… (ej. MP40, AK, 9mm)" autocomplete="off" autocorrect="off" autocapitalize="off">
+    <div class="filters">
+      <div class="filter-group" id="categoryFilters">
+        <button class="chip active" data-filter="category" data-value="all">Todas</button>
+        <button class="chip" data-filter="category" data-value="Pistola">Pistolas</button>
+        <button class="chip" data-filter="category" data-value="Revólver">Revólveres</button>
+        <button class="chip" data-filter="category" data-value="Rifle">Rifles</button>
+        <button class="chip" data-filter="category" data-value="Carabina">Carabinas</button>
+        <button class="chip" data-filter="category" data-value="SMG">SMG</button>
+        <button class="chip" data-filter="category" data-value="Ametralladora">Ametralladoras</button>
+        <button class="chip" data-filter="category" data-value="Escopeta">Escopetas</button>
+      </div>
+      <div class="filter-group" id="sectionFilters">
+        <button class="chip active" data-filter="section" data-value="all">Todas secciones</button>
+        <button class="chip" data-filter="section" data-value="malokalibrowa">Pequeño calibre</button>
+        <button class="chip" data-filter="section" data-value="bojowa">Combate</button>
+        <button class="chip" data-filter="section" data-value="maszynowa">Automáticas</button>
+      </div>
+      <div class="filter-group">
+        <label class="switch">
+          <input type="checkbox" id="explicitOnly">
+          <span>Solo precio confirmado</span>
+        </label>
+        <button class="chip sort-chip" id="sortBtn" data-sort="section">Ordenar: sección</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="empty hidden">No hay armas que coincidan con el filtro.</p>
+  </main>
+
+  <footer>
+    <p><strong>*</strong> El precio marcado con asterisco es inferido a partir del precio base del calibre (no está nombrado explícitamente en la oferta oficial). Confirmar en el campo de tiro antes de disparar.</p>
+    <p>Precios en PLN oficiales extraídos de <a href="https://www.pmshooter.pl/index.php/pl/oferta" target="_blank" rel="noopener">pmshooter.pl/oferta</a>. Conversión EUR aproximada a 0,23 €/PLN. Imágenes propiedad de PM Shooter Warsaw.</p>
+    <p>Proyecto personal · <a href="https://github.com/Seru7/pm-shooter" target="_blank" rel="noopener">código en GitHub</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
