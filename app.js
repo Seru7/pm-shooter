@@ -671,11 +671,12 @@ function renderCardPackStatus(slug) {
   card.outerHTML = cardHtml(w);
 }
 
-// ---------- exportación del pack como tabla TSV ----------
+// ---------- exportación del pack como tabla monospace ----------
+// Devuelve una tabla alineada con espacios, envuelta en ``` para que
+// WhatsApp/Telegram/Slack/Discord la rendericen con fuente monospace.
 function buildPackTable() {
   const entries = Object.entries(state.pack);
-  const header = [t('tblArma'), t('tblCalibre'), t('tblDisparos'), t('tblPrecioUnit'), t('tblTotal')];
-  const lines = [header.join('\t')];
+  const rows = [];
   let totalPLN = 0;
   let totalShots = 0;
   for (const [slug, shots] of entries) {
@@ -685,16 +686,34 @@ function buildPackTable() {
     totalPLN += lineTotal;
     totalShots += shots;
     const nameWithMark = w.explicitPrice ? w.name : `${w.name} *`;
-    lines.push([
+    rows.push([
       nameWithMark,
       w.caliber,
       String(shots),
       formatMain(w.pricePLN),
       formatMain(lineTotal),
-    ].join('\t'));
+    ]);
   }
-  lines.push([t('tblGrandTotal'), '', String(totalShots), '', formatMain(totalPLN)].join('\t'));
-  return lines.join('\n');
+  const header = [t('tblArma'), t('tblCalibre'), t('tblDisparos'), t('tblPrecioUnit'), t('tblTotal')];
+  const totalRow = [t('tblGrandTotal'), '', String(totalShots), '', formatMain(totalPLN)];
+  const allRows = [header, ...rows, totalRow];
+  const widths = [0, 1, 2, 3, 4].map(i =>
+    Math.max(...allRows.map(r => r[i].length))
+  );
+  const alignRight = [false, false, true, true, true];
+  const padCell = (cell, i) =>
+    alignRight[i] ? cell.padStart(widths[i]) : cell.padEnd(widths[i]);
+  const formatRow = r => r.map((c, i) => padCell(c, i)).join('  ');
+  const sepLine = widths.map(w => '-'.repeat(w)).join('  ');
+
+  const lines = [
+    formatRow(header),
+    sepLine,
+    ...rows.map(formatRow),
+    sepLine,
+    formatRow(totalRow),
+  ];
+  return '```\n' + lines.join('\n') + '\n```';
 }
 
 // ---------- pack panel ----------
