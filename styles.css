@@ -621,6 +621,11 @@ main {
   font-weight: 700;
   letter-spacing: 0.3px;
 }
+.pack-header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 .pack-clear {
   background: transparent;
   border: 1px solid var(--border);
@@ -632,6 +637,29 @@ main {
   font-family: inherit;
 }
 .pack-clear:hover { color: var(--red); border-color: var(--red); }
+
+.pack-copy {
+  background: transparent;
+  border: 1px solid var(--accent-dim);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.pack-copy:hover {
+  background: rgba(255, 107, 26, 0.12);
+  border-color: var(--accent);
+}
+.pack-copy.copied {
+  background: var(--green);
+  border-color: var(--green);
+  color: #0a0a0a;
+}
 
 .pack-list {
   list-style: none;

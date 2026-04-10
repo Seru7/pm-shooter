@@ -69,6 +69,15 @@ const I18N = {
     myPackTitle: 'Mi pack personalizado',
     clear: 'Vaciar',
     confirmClear: '¿Vaciar el pack?',
+    copyTable: 'Copiar tabla',
+    copied: 'Copiado ✓',
+    copyFailed: 'Error al copiar',
+    tblArma: 'Arma',
+    tblCalibre: 'Calibre',
+    tblDisparos: 'Disparos',
+    tblPrecioUnit: 'Precio/disparo',
+    tblTotal: 'Total',
+    tblGrandTotal: 'TOTAL',
     empty: 'No hay armas que coincidan con el filtro.',
     footerAsterisk: '<strong>*</strong> El precio marcado con asterisco es inferido a partir del precio base del calibre (no está nombrado explícitamente en la oferta oficial). Confirmar en el campo de tiro antes de disparar.',
     footerSource: 'Precios en PLN oficiales extraídos de <a href="https://www.pmshooter.pl/index.php/pl/oferta" target="_blank" rel="noopener">pmshooter.pl/oferta</a>. Conversión EUR en tiempo real vía frankfurter.dev. Imágenes propiedad de PM Shooter Warsaw.',
@@ -117,6 +126,15 @@ const I18N = {
     myPackTitle: 'My custom pack',
     clear: 'Clear',
     confirmClear: 'Clear the pack?',
+    copyTable: 'Copy table',
+    copied: 'Copied ✓',
+    copyFailed: 'Copy failed',
+    tblArma: 'Weapon',
+    tblCalibre: 'Caliber',
+    tblDisparos: 'Shots',
+    tblPrecioUnit: 'Price/shot',
+    tblTotal: 'Total',
+    tblGrandTotal: 'TOTAL',
     empty: 'No weapons match the current filter.',
     footerAsterisk: '<strong>*</strong> Prices marked with an asterisk are inferred from the base caliber price (not explicitly named in the official offer). Confirm at the range before shooting.',
     footerSource: 'Official PLN prices extracted from <a href="https://www.pmshooter.pl/index.php/pl/oferta" target="_blank" rel="noopener">pmshooter.pl/oferta</a>. Live EUR conversion via frankfurter.dev. Images property of PM Shooter Warsaw.',
@@ -165,6 +183,15 @@ const I18N = {
     myPackTitle: 'Mój pakiet',
     clear: 'Wyczyść',
     confirmClear: 'Wyczyścić pakiet?',
+    copyTable: 'Kopiuj tabelę',
+    copied: 'Skopiowano ✓',
+    copyFailed: 'Błąd kopiowania',
+    tblArma: 'Broń',
+    tblCalibre: 'Kaliber',
+    tblDisparos: 'Strzały',
+    tblPrecioUnit: 'Cena/strzał',
+    tblTotal: 'Suma',
+    tblGrandTotal: 'SUMA',
     empty: 'Brak broni pasującej do filtrów.',
     footerAsterisk: '<strong>*</strong> Ceny oznaczone gwiazdką są szacowane na podstawie ceny bazowej kalibru (nie są wyraźnie wymienione w oficjalnej ofercie). Potwierdź cenę na strzelnicy przed strzelaniem.',
     footerSource: 'Oficjalne ceny w PLN pochodzą z <a href="https://www.pmshooter.pl/index.php/pl/oferta" target="_blank" rel="noopener">pmshooter.pl/oferta</a>. Kurs EUR na żywo przez frankfurter.dev. Zdjęcia należą do PM Shooter Warszawa.',
@@ -242,6 +269,7 @@ const packListEl      = $('#packList');
 const packTotalShots  = $('#packTotalShots');
 const packTotalMain   = $('#packTotalMain');
 const packClearBtn    = $('#packClear');
+const packCopyBtn     = $('#packCopy');
 
 // ---------- persistencia ----------
 function loadLang() {
@@ -463,6 +491,37 @@ async function init() {
     }
   });
 
+  packCopyBtn.addEventListener('click', async () => {
+    if (!Object.keys(state.pack).length) return;
+    const table = buildPackTable();
+    const originalLabel = t('copyTable');
+    try {
+      await navigator.clipboard.writeText(table);
+      packCopyBtn.textContent = t('copied');
+      packCopyBtn.classList.add('copied');
+    } catch (e) {
+      // Fallback: selección + execCommand
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = table;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        packCopyBtn.textContent = t('copied');
+        packCopyBtn.classList.add('copied');
+      } catch {
+        packCopyBtn.textContent = t('copyFailed');
+      }
+    }
+    setTimeout(() => {
+      packCopyBtn.textContent = originalLabel;
+      packCopyBtn.classList.remove('copied');
+    }, 1800);
+  });
+
   packListEl.addEventListener('click', e => {
     const rm = e.target.closest('[data-pack-remove]');
     if (rm) {
@@ -610,6 +669,32 @@ function renderCardPackStatus(slug) {
   const w = state.weapons.find(x => x.slug === slug);
   if (!w) return;
   card.outerHTML = cardHtml(w);
+}
+
+// ---------- exportación del pack como tabla TSV ----------
+function buildPackTable() {
+  const entries = Object.entries(state.pack);
+  const header = [t('tblArma'), t('tblCalibre'), t('tblDisparos'), t('tblPrecioUnit'), t('tblTotal')];
+  const lines = [header.join('\t')];
+  let totalPLN = 0;
+  let totalShots = 0;
+  for (const [slug, shots] of entries) {
+    const w = state.weapons.find(x => x.slug === slug);
+    if (!w || w.pricePLN == null) continue;
+    const lineTotal = w.pricePLN * shots;
+    totalPLN += lineTotal;
+    totalShots += shots;
+    const nameWithMark = w.explicitPrice ? w.name : `${w.name} *`;
+    lines.push([
+      nameWithMark,
+      w.caliber,
+      String(shots),
+      formatMain(w.pricePLN),
+      formatMain(lineTotal),
+    ].join('\t'));
+  }
+  lines.push([t('tblGrandTotal'), '', String(totalShots), '', formatMain(totalPLN)].join('\t'));
+  return lines.join('\n');
 }
 
 // ---------- pack panel ----------
