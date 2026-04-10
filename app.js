@@ -69,9 +69,12 @@ const I18N = {
     myPackTitle: 'Mi pack personalizado',
     clear: 'Vaciar',
     confirmClear: '¿Vaciar el pack?',
-    copyTable: 'Copiar tabla',
-    copied: 'Copiado ✓',
-    copyFailed: 'Error al copiar',
+    copyTable: 'Compartir imagen',
+    copied: 'Compartido ✓',
+    copyFailed: 'Error al compartir',
+    imgCopied: 'Imagen copiada ✓',
+    imgDownloaded: 'Descargado ✓',
+    imgTitle: 'Mi pack — PM Shooter',
     tblArma: 'Arma',
     tblCalibre: 'Calibre',
     tblDisparos: 'Disparos',
@@ -126,9 +129,12 @@ const I18N = {
     myPackTitle: 'My custom pack',
     clear: 'Clear',
     confirmClear: 'Clear the pack?',
-    copyTable: 'Copy table',
-    copied: 'Copied ✓',
-    copyFailed: 'Copy failed',
+    copyTable: 'Share image',
+    copied: 'Shared ✓',
+    copyFailed: 'Share failed',
+    imgCopied: 'Image copied ✓',
+    imgDownloaded: 'Downloaded ✓',
+    imgTitle: 'My pack — PM Shooter',
     tblArma: 'Weapon',
     tblCalibre: 'Caliber',
     tblDisparos: 'Shots',
@@ -183,9 +189,12 @@ const I18N = {
     myPackTitle: 'Mój pakiet',
     clear: 'Wyczyść',
     confirmClear: 'Wyczyścić pakiet?',
-    copyTable: 'Kopiuj tabelę',
-    copied: 'Skopiowano ✓',
-    copyFailed: 'Błąd kopiowania',
+    copyTable: 'Udostępnij obraz',
+    copied: 'Udostępniono ✓',
+    copyFailed: 'Błąd udostępniania',
+    imgCopied: 'Obraz skopiowany ✓',
+    imgDownloaded: 'Pobrano ✓',
+    imgTitle: 'Mój pakiet — PM Shooter',
     tblArma: 'Broń',
     tblCalibre: 'Kaliber',
     tblDisparos: 'Strzały',
@@ -494,17 +503,22 @@ async function init() {
   packCopyBtn.addEventListener('click', async () => {
     if (!Object.keys(state.pack).length) return;
     const originalLabel = t('copyTable');
-    const ok = await copyPackToClipboard();
-    if (ok) {
-      packCopyBtn.textContent = t('copied');
+    packCopyBtn.disabled = true;
+    const result = await sharePackImage();
+    packCopyBtn.disabled = false;
+    if (result.ok) {
       packCopyBtn.classList.add('copied');
+      if (result.how === 'shared')         packCopyBtn.textContent = t('copied');
+      else if (result.how === 'copied')    packCopyBtn.textContent = t('imgCopied');
+      else if (result.how === 'downloaded') packCopyBtn.textContent = t('imgDownloaded');
+      else packCopyBtn.textContent = t('copied');
     } else {
       packCopyBtn.textContent = t('copyFailed');
     }
     setTimeout(() => {
       packCopyBtn.textContent = originalLabel;
       packCopyBtn.classList.remove('copied');
-    }, 1800);
+    }, 2200);
   });
 
   packListEl.addEventListener('click', e => {
@@ -656,13 +670,15 @@ function renderCardPackStatus(slug) {
   card.outerHTML = cardHtml(w);
 }
 
-// ---------- exportación del pack ----------
-// Construimos dos formatos:
-//  1) text/html — tabla real. Gmail, Outlook, Sheets, Excel, Docs, Notion,
-//     WhatsApp Web: pegan como tabla nativa con celdas.
-//  2) text/plain — lista vertical legible con fuentes proporcionales, para
-//     WhatsApp móvil, Telegram, SMS, iMessage, donde el HTML se descarta.
-// La Clipboard API moderna copia ambos a la vez y cada app usa el que entiende.
+// ---------- exportación del pack como imagen PNG ----------
+// Dibujamos la tabla completa en un canvas y la compartimos vía:
+//  1) navigator.share({ files: [png] }) — iPhone/Android abren el share sheet
+//     nativo, el usuario elige WhatsApp, Gmail, Telegram, lo que sea
+//  2) navigator.clipboard.write([ClipboardItem image/png]) — desktop Chrome/
+//     Safari, pega como imagen en cualquier editor rich text
+//  3) descarga del PNG — fallback universal
+// Una imagen se ve igual en TODAS las apps. Sin depender de fuentes, HTML,
+// Markdown ni monospace.
 
 function getPackData() {
   const entries = Object.entries(state.pack);
@@ -680,91 +696,258 @@ function getPackData() {
   return { items, totalPLN, totalShots };
 }
 
-function buildPackHTML() {
+function generatePackImage() {
   const { items, totalPLN, totalShots } = getPackData();
-  const headerBg = '#f5f5f5';
-  const border = '1px solid #999';
-  const cellStyle = `border:${border};padding:6px 10px;`;
-  const rows = items.map(({ w, shots, lineTotal }) => {
-    const nameWithMark = w.explicitPrice
-      ? escapeHtml(w.name)
-      : `${escapeHtml(w.name)} *`;
-    return `<tr>
-      <td style="${cellStyle}">${nameWithMark}</td>
-      <td style="${cellStyle}">${escapeHtml(w.caliber)}</td>
-      <td style="${cellStyle}text-align:right;">${shots}</td>
-      <td style="${cellStyle}text-align:right;">${escapeHtml(formatMain(w.pricePLN))}</td>
-      <td style="${cellStyle}text-align:right;font-weight:bold;">${escapeHtml(formatMain(lineTotal))}</td>
-    </tr>`;
-  }).join('');
-  return `<table style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
-    <thead>
-      <tr style="background:${headerBg};">
-        <th style="${cellStyle}text-align:left;">${escapeHtml(t('tblArma'))}</th>
-        <th style="${cellStyle}text-align:left;">${escapeHtml(t('tblCalibre'))}</th>
-        <th style="${cellStyle}text-align:right;">${escapeHtml(t('tblDisparos'))}</th>
-        <th style="${cellStyle}text-align:right;">${escapeHtml(t('tblPrecioUnit'))}</th>
-        <th style="${cellStyle}text-align:right;">${escapeHtml(t('tblTotal'))}</th>
-      </tr>
-    </thead>
-    <tbody>${rows}</tbody>
-    <tfoot>
-      <tr style="background:${headerBg};font-weight:bold;">
-        <td style="${cellStyle}" colspan="2">${escapeHtml(t('tblGrandTotal'))}</td>
-        <td style="${cellStyle}text-align:right;">${totalShots}</td>
-        <td style="${cellStyle}"></td>
-        <td style="${cellStyle}text-align:right;">${escapeHtml(formatMain(totalPLN))}</td>
-      </tr>
-    </tfoot>
-  </table>`;
-}
 
-function buildPackPlain() {
-  const { items, totalPLN, totalShots } = getPackData();
-  const lines = ['🎯 PM Shooter — ' + t('myPackTitle'), ''];
-  for (const { w, shots, lineTotal } of items) {
-    const mark = w.explicitPrice ? '' : ' *';
-    lines.push(`• ${w.name}${mark} (${w.caliber})`);
-    lines.push(`   ${shots} × ${formatMain(w.pricePLN)} = ${formatMain(lineTotal)}`);
+  // Colores (paleta del sitio)
+  const C = {
+    bg: '#0a0a0a',
+    bgHeader: '#161616',
+    bgRowEven: '#0f0f0f',
+    bgRowOdd: '#141414',
+    bgTotal: '#1a1a1a',
+    border: '#2a2a2a',
+    text: '#f5f5f5',
+    textDim: '#9a9a9a',
+    textMuted: '#666',
+    accent: '#ff6b1a',
+    green: '#4ade80',
+    yellow: '#fbbf24',
+  };
+
+  const FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif';
+  const fMed  = (px, weight = '400') => `${weight} ${px}px ${FONT}`;
+
+  // Datos de columnas
+  const cols = [
+    { header: t('tblArma'),       align: 'left'  },
+    { header: t('tblCalibre'),    align: 'left'  },
+    { header: t('tblDisparos'),   align: 'right' },
+    { header: t('tblPrecioUnit'), align: 'right' },
+    { header: t('tblTotal'),      align: 'right' },
+  ];
+  const rowsData = items.map(({ w, shots, lineTotal }) => [
+    w.explicitPrice ? w.name : `${w.name} *`,
+    w.caliber,
+    String(shots),
+    formatMain(w.pricePLN),
+    formatMain(lineTotal),
+  ]);
+  const totalRowData = [t('tblGrandTotal'), '', String(totalShots), '', formatMain(totalPLN)];
+
+  // Canvas de medida para calcular anchos de columna
+  const measure = document.createElement('canvas').getContext('2d');
+  const colPad = 18;
+  const colWidths = cols.map((col, i) => {
+    measure.font = fMed(13, '700');
+    const headerW = measure.measureText(col.header.toUpperCase()).width;
+    measure.font = fMed(15, i === 0 ? '600' : '400');
+    const bodyMax = Math.max(
+      0,
+      ...rowsData.map(r => measure.measureText(r[i]).width),
+      measure.measureText(totalRowData[i]).width
+    );
+    return Math.ceil(Math.max(headerW, bodyMax)) + colPad * 2;
+  });
+  const tableW = colWidths.reduce((a, b) => a + b, 0);
+
+  // Dimensiones
+  const padX = 28;
+  const padTop = 28;
+  const padBottom = 26;
+  const titleH = 34;
+  const subtitleH = 22;
+  const gapBelowTitle = 18;
+  const headerRowH = 42;
+  const bodyRowH = 38;
+  const totalRowH = 48;
+  const footerH = 24;
+  const gapBelowTable = 14;
+
+  const width = padX * 2 + tableW;
+  const height =
+    padTop + titleH + subtitleH + gapBelowTitle +
+    headerRowH + bodyRowH * items.length + totalRowH +
+    gapBelowTable + footerH + padBottom;
+
+  // Canvas real (retina x2)
+  const dpr = 2;
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.round(width * dpr);
+  canvas.height = Math.round(height * dpr);
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  ctx.textBaseline = 'middle';
+
+  // Fondo general
+  ctx.fillStyle = C.bg;
+  ctx.fillRect(0, 0, width, height);
+
+  // Título "PM Shooter Warsaw"
+  let y = padTop;
+  ctx.textAlign = 'left';
+  ctx.font = fMed(26, '800');
+  ctx.fillStyle = C.text;
+  ctx.fillText('PM Shooter ', padX, y + titleH / 2);
+  const brandW = ctx.measureText('PM Shooter ').width;
+  ctx.fillStyle = C.accent;
+  ctx.font = fMed(26, '500');
+  ctx.fillText(t('brandCity'), padX + brandW, y + titleH / 2);
+
+  // Subtítulo
+  y += titleH;
+  ctx.fillStyle = C.textDim;
+  ctx.font = fMed(14, '400');
+  ctx.fillText(t('myPackTitle'), padX, y + subtitleH / 2);
+
+  // Tabla
+  y += subtitleH + gapBelowTitle;
+  const tableX = padX;
+
+  // Cabecera
+  ctx.fillStyle = C.bgHeader;
+  ctx.fillRect(tableX, y, tableW, headerRowH);
+  ctx.strokeStyle = C.accent;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(tableX, y + headerRowH);
+  ctx.lineTo(tableX + tableW, y + headerRowH);
+  ctx.stroke();
+
+  ctx.font = fMed(13, '700');
+  ctx.fillStyle = C.accent;
+  let cx = tableX;
+  cols.forEach((col, i) => {
+    const cw = colWidths[i];
+    ctx.textAlign = col.align;
+    const tx = col.align === 'right' ? cx + cw - colPad : cx + colPad;
+    ctx.fillText(col.header.toUpperCase(), tx, y + headerRowH / 2);
+    cx += cw;
+  });
+  y += headerRowH;
+
+  // Filas
+  rowsData.forEach((row, rIdx) => {
+    const bg = rIdx % 2 === 0 ? C.bgRowEven : C.bgRowOdd;
+    ctx.fillStyle = bg;
+    ctx.fillRect(tableX, y, tableW, bodyRowH);
+
+    let rx = tableX;
+    row.forEach((cell, i) => {
+      const cw = colWidths[i];
+      ctx.textAlign = cols[i].align;
+      const tx = cols[i].align === 'right' ? rx + cw - colPad : rx + colPad;
+      if (i === 0) {
+        ctx.font = fMed(15, '700');
+        ctx.fillStyle = C.text;
+      } else if (i === 4) {
+        ctx.font = fMed(15, '800');
+        ctx.fillStyle = C.green;
+      } else {
+        ctx.font = fMed(14, '400');
+        ctx.fillStyle = C.textDim;
+      }
+      ctx.fillText(cell, tx, y + bodyRowH / 2);
+      rx += cw;
+    });
+    y += bodyRowH;
+  });
+
+  // Fila total
+  ctx.fillStyle = C.bgTotal;
+  ctx.fillRect(tableX, y, tableW, totalRowH);
+  ctx.strokeStyle = C.accent;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(tableX, y);
+  ctx.lineTo(tableX + tableW, y);
+  ctx.stroke();
+
+  let tx0 = tableX;
+  totalRowData.forEach((cell, i) => {
+    const cw = colWidths[i];
+    ctx.textAlign = cols[i].align;
+    const tx = cols[i].align === 'right' ? tx0 + cw - colPad : tx0 + colPad;
+    if (i === 0) {
+      ctx.font = fMed(16, '800');
+      ctx.fillStyle = C.text;
+    } else if (i === 4) {
+      ctx.font = fMed(20, '800');
+      ctx.fillStyle = C.green;
+    } else {
+      ctx.font = fMed(14, '700');
+      ctx.fillStyle = C.textDim;
+    }
+    ctx.fillText(cell, tx, y + totalRowH / 2);
+    tx0 += cw;
+  });
+  y += totalRowH;
+
+  // Footer (fuente pequeña)
+  y += gapBelowTable;
+  ctx.fillStyle = C.textMuted;
+  ctx.font = fMed(11, '400');
+  ctx.textAlign = 'left';
+  const hasInferred = items.some(({ w }) => !w.explicitPrice);
+  if (hasInferred) {
+    ctx.fillStyle = C.yellow;
+    ctx.fillText('* ' + (state.lang === 'es'
+      ? 'precio inferido, confirmar en el campo de tiro'
+      : state.lang === 'pl'
+      ? '* cena szacowana, potwierdź na strzelnicy'
+      : '* inferred price, confirm at the range'), padX, y + 7);
   }
-  lines.push('');
-  lines.push('━━━━━━━━━━━━━━━━━');
-  lines.push(`${t('tblGrandTotal')}: ${totalShots} ${pluralShots(totalShots)} · ${formatMain(totalPLN)}`);
-  return lines.join('\n');
+  ctx.fillStyle = C.textMuted;
+  ctx.textAlign = 'right';
+  ctx.fillText('seru7.github.io/pm-shooter', padX + tableW, y + 7);
+
+  // toBlob como Promise (y devolver también la Promise directamente, no blob)
+  // IMPORTANTE: en Safari iOS, para que navigator.clipboard.write funcione
+  // hay que pasar la Promise del blob dentro del ClipboardItem, no el blob ya
+  // resuelto, porque el await rompe el user gesture.
+  return new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
 }
 
-async function copyPackToClipboard() {
-  const html = buildPackHTML();
-  const plain = buildPackPlain();
-  // Intento 1: copiar ambos formatos (HTML + plain). Gmail/Sheets cogen HTML, WhatsApp coge plain.
+async function sharePackImage() {
+  const blob = await generatePackImage();
+  if (!blob) return { ok: false, how: 'error' };
+  const fileName = 'pm-shooter-pack.png';
+  const file = new File([blob], fileName, { type: 'image/png' });
+
+  // 1. Web Share API con file — iPhone/Android abren el share sheet nativo
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    try {
+      await navigator.share({ files: [file], title: t('imgTitle') });
+      return { ok: true, how: 'shared' };
+    } catch (e) {
+      if (e.name === 'AbortError') return { ok: true, how: 'shared' };
+      // cualquier otro error → intentar fallback
+    }
+  }
+
+  // 2. Copiar imagen al portapapeles — desktop Chrome/Safari/Edge
   try {
     if (navigator.clipboard && typeof ClipboardItem !== 'undefined') {
-      const item = new ClipboardItem({
-        'text/html': new Blob([html], { type: 'text/html' }),
-        'text/plain': new Blob([plain], { type: 'text/plain' }),
-      });
-      await navigator.clipboard.write([item]);
-      return true;
+      await navigator.clipboard.write([
+        new ClipboardItem({ 'image/png': blob }),
+      ]);
+      return { ok: true, how: 'copied' };
     }
-  } catch (e) { /* cae al fallback */ }
-  // Intento 2: solo texto plano
+  } catch (e) { /* cae al download */ }
+
+  // 3. Descargar como PNG — fallback universal
   try {
-    await navigator.clipboard.writeText(plain);
-    return true;
-  } catch (e) { /* cae al fallback */ }
-  // Intento 3: textarea + execCommand (navegadores viejos)
-  try {
-    const ta = document.createElement('textarea');
-    ta.value = plain;
-    ta.style.position = 'fixed';
-    ta.style.left = '-9999px';
-    document.body.appendChild(ta);
-    ta.select();
-    const ok = document.execCommand('copy');
-    document.body.removeChild(ta);
-    return ok;
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    return { ok: true, how: 'downloaded' };
   } catch (e) {
-    return false;
+    return { ok: false, how: 'error' };
   }
 }
 
