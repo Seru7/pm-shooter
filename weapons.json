@@ -9,7 +9,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1.1 kg",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/ruger22_opis.png"
   },
   {
     "slug": "swvictory",
@@ -21,7 +27,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1020 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/swvictory_info.png"
   },
   {
     "slug": "margolin",
@@ -33,7 +45,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "900 g",
+    "range": "25 m",
+    "rateOfFire": null,
+    "magazineCapacity": "7-10",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/margolin_opis.png"
   },
   {
     "slug": "force",
@@ -45,7 +63,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "600 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/force_info.png"
   },
   {
     "slug": "bersa",
@@ -57,7 +81,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "535 g",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/bersa_opis.png"
   },
   {
     "slug": "buckmark",
@@ -69,7 +99,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "964 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/buckmark_opis.png"
   },
   {
     "slug": "cp33",
@@ -81,7 +117,13 @@
     "caliber": ".22 LR subsonic",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "669 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 33,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/cp33_opis.png"
   },
   {
     "slug": "swmp15",
@@ -93,7 +135,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.5 kg",
+    "range": "150 m",
+    "rateOfFire": null,
+    "magazineCapacity": 25,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/swmp15_opis.png"
   },
   {
     "slug": "tipmann",
@@ -105,7 +153,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.58 kg",
+    "range": "150 m",
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/tipmann_info.png"
   },
   {
     "slug": "berylM22",
@@ -117,7 +171,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.5 kg",
+    "range": "150 m",
+    "rateOfFire": null,
+    "magazineCapacity": 20,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/berylM22_info.png"
   },
   {
     "slug": "cz512",
@@ -129,7 +189,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.67 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/cz512_info.png"
   },
   {
     "slug": "cz513",
@@ -141,7 +207,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.9 kg",
+    "range": "150 m",
+    "rateOfFire": null,
+    "magazineCapacity": "5-10",
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/cz513_opis.png"
   },
   {
     "slug": "toz",
@@ -153,7 +225,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.7 kg",
+    "range": "150 m",
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/toz_info.png"
   },
   {
     "slug": "baikal161",
@@ -165,7 +243,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.6 kg",
+    "range": "150 m",
+    "rateOfFire": null,
+    "magazineCapacity": 9,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/baikal161_opis.png"
   },
   {
     "slug": "rascal",
@@ -177,7 +261,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1.21 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 1,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/rascal_info.png"
   },
   {
     "slug": "cmr30",
@@ -189,7 +279,13 @@
     "caliber": ".22 WMR",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "1.7 kg",
+    "range": "100 m",
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/cmr30_opis.png"
   },
   {
     "slug": "wrangler",
@@ -201,7 +297,13 @@
     "caliber": ".22 LR",
     "pricePLN": 2,
     "priceEUR": 0.46,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "961 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 6,
+    "minShots": 6,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/wrangler_info.png"
   },
   {
     "slug": "xfive",
@@ -213,7 +315,13 @@
     "caliber": "9mm Para",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "1.33 kg",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 19,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/xfive_opis.png"
   },
   {
     "slug": "browning_hp",
@@ -225,7 +333,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1 kg",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 13,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/browning_hp_opis.png"
   },
   {
     "slug": "colt911",
@@ -237,7 +351,13 @@
     "caliber": ".45 ACP",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "1.1 kg",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 7,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/colt911_opis.png"
   },
   {
     "slug": "scandium",
@@ -249,7 +369,13 @@
     "caliber": ".45 ACP",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "816 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 7,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/scandium_info.png"
   },
   {
     "slug": "tt",
@@ -261,7 +387,13 @@
     "caliber": "7.62x25 Tokarev",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "854 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/tt_opis.png"
   },
   {
     "slug": "luger",
@@ -273,7 +405,13 @@
     "caliber": "9mm Para",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "835 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/luger_opis.png"
   },
   {
     "slug": "husqvarna",
@@ -285,7 +423,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1100 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/husqvarna_info.png"
   },
   {
     "slug": "p38",
@@ -297,7 +441,13 @@
     "caliber": "9mm Para",
     "pricePLN": 4,
     "priceEUR": 0.92,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "960 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/p38_info.png"
   },
   {
     "slug": "ppk",
@@ -309,7 +459,13 @@
     "caliber": "7.65 Browning",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "568 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 7,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/ppk_info.png"
   },
   {
     "slug": "beretta84",
@@ -321,7 +477,13 @@
     "caliber": "9mm Short",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "560 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 13,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/beretta84_info.png"
   },
   {
     "slug": "beretta92",
@@ -333,7 +495,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "955 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/beretta92_opis.png"
   },
   {
     "slug": "usp_std",
@@ -345,7 +513,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "720 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/usp_std_opis.png"
   },
   {
     "slug": "glock17_gen3",
@@ -357,7 +531,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "625 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": "17-19",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/glock17_gen3_opis.png"
   },
   {
     "slug": "glock17_gen4",
@@ -369,7 +549,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "625 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": "17-19",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/glock17_gen4_opis.png"
   },
   {
     "slug": "glock17c",
@@ -381,7 +567,13 @@
     "caliber": "9mm Para",
     "pricePLN": 4,
     "priceEUR": 0.92,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "620 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": "17-19",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/glock17c_opis.png"
   },
   {
     "slug": "glock19",
@@ -393,7 +585,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "595 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/glock19_info.png"
   },
   {
     "slug": "glock20",
@@ -405,7 +603,13 @@
     "caliber": "10mm Auto",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "845 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/glock20_info.png"
   },
   {
     "slug": "vis100",
@@ -417,7 +621,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "850 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": "10-20",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/vis100_opis.png"
   },
   {
     "slug": "xdm9",
@@ -429,7 +639,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "852 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 19,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/xdm9_opis.png"
   },
   {
     "slug": "bul",
@@ -441,7 +657,13 @@
     "caliber": "9mm Para",
     "pricePLN": 4,
     "priceEUR": 0.92,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "630 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/bul_info.png"
   },
   {
     "slug": "Strike_one",
@@ -453,7 +675,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "750 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": "15-17",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/Strike_one_info.png"
   },
   {
     "slug": "mp9",
@@ -465,7 +693,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "680 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": "10-17",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/mp9_opis.png"
   },
   {
     "slug": "jericho941",
@@ -477,7 +711,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "860 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/jericho941_opis.png"
   },
   {
     "slug": "browningm1900",
@@ -489,7 +729,13 @@
     "caliber": "7.65 Browning",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "625 g",
+    "range": "25 m",
+    "rateOfFire": null,
+    "magazineCapacity": 7,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/browningm1900_info.png"
   },
   {
     "slug": "bersaTP9",
@@ -501,7 +747,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "352 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/bersaTP9_info.png"
   },
   {
     "slug": "shadow",
@@ -513,7 +765,13 @@
     "caliber": "9mm Para",
     "pricePLN": 4,
     "priceEUR": 0.92,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "1170 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 19,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/shadow_info.png"
   },
   {
     "slug": "ruger_comp",
@@ -525,7 +783,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "965 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/ruger_comp_info.png"
   },
   {
     "slug": "steyrL9",
@@ -537,7 +801,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "785 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/steyrL9_info.png"
   },
   {
     "slug": "steyrM9",
@@ -549,7 +819,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "748 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/steyrM9_opis.png"
   },
   {
     "slug": "czp10",
@@ -561,7 +837,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "800 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 19,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/czp10_info.png"
   },
   {
     "slug": "p10c",
@@ -573,7 +855,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "740 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/p10c_info.png"
   },
   {
     "slug": "masada",
@@ -585,7 +873,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "650 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/masada_info.png"
   },
   {
     "slug": "apx",
@@ -597,7 +891,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "760 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": "15-21",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/apx_info.png"
   },
   {
     "slug": "sig232_opis_pl",
@@ -609,7 +909,12 @@
     "caliber": "9mm Short",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "524 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 5
   },
   {
     "slug": "pa63",
@@ -621,7 +926,13 @@
     "caliber": "9mm Makarov",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "596 g",
+    "range": "25 m",
+    "rateOfFire": null,
+    "magazineCapacity": 7,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/pa63_opis.png"
   },
   {
     "slug": "makarov",
@@ -633,7 +944,13 @@
     "caliber": "9mm Makarov",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "730 g",
+    "range": "25 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/makarov_info.png"
   },
   {
     "slug": "cz70",
@@ -645,7 +962,13 @@
     "caliber": "7.65 Browning",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "710 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/cz70_info.png"
   },
   {
     "slug": "zastava70",
@@ -657,7 +980,13 @@
     "caliber": "7.65 Browning",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "670 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/zastava70_info.png"
   },
   {
     "slug": "pdp",
@@ -669,7 +998,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "874 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 18,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/pdp_info.png"
   },
   {
     "slug": "waltherp99",
@@ -681,7 +1016,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "630 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 16,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/waltherp99_opis.png"
   },
   {
     "slug": "canik",
@@ -693,7 +1034,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "834 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": "15-20",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/canik_opis.png"
   },
   {
     "slug": "rex",
@@ -705,7 +1052,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "820 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/rex_info.png"
   },
   {
     "slug": "p225",
@@ -717,7 +1070,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "850 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/p225_info.png"
   },
   {
     "slug": "sigp226",
@@ -729,7 +1088,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "885 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sigp226_info.png"
   },
   {
     "slug": "sig320",
@@ -741,7 +1106,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "738 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sig320_info.png"
   },
   {
     "slug": "falcon9xc",
@@ -753,7 +1124,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "870 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/falcon9xc_info.png"
   },
   {
     "slug": "fn509",
@@ -765,7 +1142,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "750 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/fn509_info.png"
   },
   {
     "slug": "fn1910",
@@ -777,7 +1160,13 @@
     "caliber": "7.65 Browning",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "730 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/fn1910_info.png"
   },
   {
     "slug": "lonewolf",
@@ -789,7 +1178,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "538 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/lonewolf_info.png"
   },
   {
     "slug": "k100",
@@ -801,7 +1196,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "740 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/k100_info.png"
   },
   {
     "slug": "q100",
@@ -813,7 +1214,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "722 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/q100_info.png"
   },
   {
     "slug": "desertgolden",
@@ -825,7 +1232,13 @@
     "caliber": ".44 Magnum",
     "pricePLN": 50,
     "priceEUR": 11.5,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "1.99 kg",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 7,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/desertgolden_opis.png"
   },
   {
     "slug": "rhino",
@@ -837,7 +1250,13 @@
     "caliber": ".38 Special",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "936 g",
+    "range": "50 m",
+    "rateOfFire": null,
+    "magazineCapacity": 6,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/rhino_opis.png"
   },
   {
     "slug": "taurus460",
@@ -849,7 +1268,13 @@
     "caliber": ".460 S&W",
     "pricePLN": 30,
     "priceEUR": 6.9,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "1615 g",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 1,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/taurus460_info.png"
   },
   {
     "slug": "redhawk",
@@ -861,7 +1286,13 @@
     "caliber": ".44 Magnum",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1474 g",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 6,
+    "minShots": 1,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/redhawk_info.png"
   },
   {
     "slug": "gp100",
@@ -873,7 +1304,13 @@
     "caliber": ".357 Magnum",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1276 g",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 6,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/gp100_info.png"
   },
   {
     "slug": "bfr",
@@ -885,7 +1322,13 @@
     "caliber": "45-70 Govt",
     "pricePLN": 50,
     "priceEUR": 11.5,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "2.35 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 1,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/bfr_info.png"
   },
   {
     "slug": "raginghunter",
@@ -897,7 +1340,13 @@
     "caliber": ".44 Magnum",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1615 g",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 1,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/raginghunter_info.png"
   },
   {
     "slug": "smith44long",
@@ -909,7 +1358,13 @@
     "caliber": ".44 Magnum",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1.2 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 6,
+    "minShots": 1,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/smith44long_info.png"
   },
   {
     "slug": "ruger44magnum",
@@ -921,7 +1376,13 @@
     "caliber": ".44 Magnum",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1.3 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 6,
+    "minShots": 1,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/ruger44magnum_info.png"
   },
   {
     "slug": "judge",
@@ -933,7 +1394,13 @@
     "caliber": ".45 Colt / .410",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "822 g",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/judge_info.png"
   },
   {
     "slug": "navy",
@@ -945,7 +1412,13 @@
     "caliber": ".38 Special",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1.25 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 6,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/navy_info.png"
   },
   {
     "slug": "nagant",
@@ -957,7 +1430,13 @@
     "caliber": "7.62x38R",
     "pricePLN": 15,
     "priceEUR": 3.45,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "795 g",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 7,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/nagant_opis.png"
   },
   {
     "slug": "sauersohn",
@@ -969,7 +1448,13 @@
     "caliber": "7.65 Browning",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1170 g",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 6,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sauersohn_info.png"
   },
   {
     "slug": "berettastorm",
@@ -981,7 +1466,13 @@
     "caliber": "9mm Para",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "2.6 kg",
+    "range": "200 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/berettastorm_info.png"
   },
   {
     "slug": "sub2000",
@@ -993,7 +1484,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "1.9 kg",
+    "range": "200 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sub2000_info.png"
   },
   {
     "slug": "lfa_chal",
@@ -1005,7 +1502,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.5 kg",
+    "range": "200 m",
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/lfa_chal_info.png"
   },
   {
     "slug": "pcc",
@@ -1017,7 +1520,13 @@
     "caliber": "9mm Para",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.6 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 17,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/pcc_info.png"
   },
   {
     "slug": "M16",
@@ -1029,7 +1538,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.26 kg",
+    "range": "460 m",
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/M16_opis.png"
   },
   {
     "slug": "m4sw",
@@ -1041,7 +1556,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.88 kg",
+    "range": "500 m",
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/m4sw_opis.png"
   },
   {
     "slug": "zion",
@@ -1053,7 +1574,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.90 kg",
+    "range": "500 m",
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/zion_info.png"
   },
   {
     "slug": "haenel",
@@ -1065,7 +1592,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.36 kg",
+    "range": "500 m",
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/haenel_info.png"
   },
   {
     "slug": "mutant",
@@ -1077,7 +1610,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.2 kg",
+    "range": "3000 m",
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/mutant_info.png"
   },
   {
     "slug": "sig510",
@@ -1089,7 +1628,13 @@
     "caliber": "7.5x55 Swiss",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "5.95 kg",
+    "range": "800 m",
+    "rateOfFire": "500 strz./min",
+    "magazineCapacity": 24,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sig510_info.png"
   },
   {
     "slug": "fnfal",
@@ -1101,7 +1646,13 @@
     "caliber": "7.62x51mm NATO",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "4.34 kg",
+    "range": "800 m",
+    "rateOfFire": "700 strz./min",
+    "magazineCapacity": "20-30",
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/fnfal_info.png"
   },
   {
     "slug": "g3",
@@ -1113,7 +1664,13 @@
     "caliber": "7.62x51mm NATO",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "4.1 kg",
+    "range": "500 m",
+    "rateOfFire": "500-600 strz./min",
+    "magazineCapacity": 20,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/g3_opis.png"
   },
   {
     "slug": "hk11",
@@ -1125,7 +1682,13 @@
     "caliber": "7.62x51mm NATO",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "8.15 kg",
+    "range": "1200 m",
+    "rateOfFire": "800 strz./min",
+    "magazineCapacity": "20-80",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/hk11_info.png"
   },
   {
     "slug": "galil",
@@ -1137,7 +1700,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.75 kg",
+    "range": "500 m",
+    "rateOfFire": null,
+    "magazineCapacity": "30-65",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/galil_info.png"
   },
   {
     "slug": "saiga102",
@@ -1149,7 +1718,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.6 kg",
+    "range": "500 m",
+    "rateOfFire": null,
+    "magazineCapacity": "10-30",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/saiga102_info.png"
   },
   {
     "slug": "tantal",
@@ -1161,7 +1736,13 @@
     "caliber": "5.45x39mm",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.69 kg",
+    "range": "440 m",
+    "rateOfFire": "700 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/tantal_info.png"
   },
   {
     "slug": "beryls762",
@@ -1173,7 +1754,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.6 kg",
+    "range": "600 m",
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/beryls762_info.png"
   },
   {
     "slug": "sadu",
@@ -1185,7 +1772,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "4 kg",
+    "range": "3000 m",
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sadu_info.png"
   },
   {
     "slug": "hk243",
@@ -1197,7 +1790,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.9 kg",
+    "range": "800 m",
+    "rateOfFire": null,
+    "magazineCapacity": "10-30",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/hk243_info.png"
   },
   {
     "slug": "sl8",
@@ -1209,7 +1808,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.9 kg",
+    "range": "800 m",
+    "rateOfFire": null,
+    "magazineCapacity": "10-30",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sl8_opis.png"
   },
   {
     "slug": "hunt",
@@ -1221,7 +1826,13 @@
     "caliber": "Shotgun 12ga",
     "pricePLN": 7,
     "priceEUR": 1.61,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "5.5 kg",
+    "range": "12 m",
+    "rateOfFire": null,
+    "magazineCapacity": 12,
+    "minShots": 4,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/hunt_info.png"
   },
   {
     "slug": "tavorshotgun",
@@ -1233,7 +1844,13 @@
     "caliber": "Shotgun 12ga",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.6 kg",
+    "range": "123 m",
+    "rateOfFire": null,
+    "magazineCapacity": 15,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/tavorshotgun_info.png"
   },
   {
     "slug": "hatsan",
@@ -1245,7 +1862,13 @@
     "caliber": "Shotgun 12ga",
     "pricePLN": 7,
     "priceEUR": 1.61,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.2 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 7,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/hatsan_opis.png"
   },
   {
     "slug": "armsan_RSX1",
@@ -1257,7 +1880,13 @@
     "caliber": "Shotgun 12ga",
     "pricePLN": 7,
     "priceEUR": 1.61,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/armsan_RSX1_opis.png"
   },
   {
     "slug": "armsanrss1",
@@ -1269,7 +1898,13 @@
     "caliber": "Shotgun 12ga",
     "pricePLN": 7,
     "priceEUR": 1.61,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.3 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": "5-10",
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/armsanrss1_opis.png"
   },
   {
     "slug": "lupara",
@@ -1281,7 +1916,13 @@
     "caliber": "Shotgun 12ga",
     "pricePLN": 7,
     "priceEUR": 1.61,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": null,
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 2,
+    "minShots": 2,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/lupara_opis.png"
   },
   {
     "slug": "sauer",
@@ -1293,7 +1934,13 @@
     "caliber": "Shotgun 12ga",
     "pricePLN": 7,
     "priceEUR": 1.61,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": null,
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 2,
+    "minShots": 2,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sauer_info.png"
   },
   {
     "slug": "valmetbock",
@@ -1305,7 +1952,13 @@
     "caliber": "Shotgun 12ga",
     "pricePLN": 7,
     "priceEUR": 1.61,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": null,
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 2,
+    "minShots": 2,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/valmetbock_info.png"
   },
   {
     "slug": "zb26",
@@ -1317,7 +1970,13 @@
     "caliber": "7.92x57 Mauser",
     "pricePLN": 9,
     "priceEUR": 2.07,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "10.5 kg",
+    "range": "1000 m",
+    "rateOfFire": "500 strz./min",
+    "magazineCapacity": 20,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/zb26_opis.png"
   },
   {
     "slug": "mg42",
@@ -1329,7 +1988,13 @@
     "caliber": "7.62x51mm NATO",
     "pricePLN": 12,
     "priceEUR": 2.76,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "11.57 kg",
+    "range": "2000 m",
+    "rateOfFire": "1200-1500 strz./min",
+    "magazineCapacity": "50-250",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/mg42_opis.png"
   },
   {
     "slug": "DPM",
@@ -1341,7 +2006,13 @@
     "caliber": "7.62x54mmR",
     "pricePLN": 9,
     "priceEUR": 2.07,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "9.12 kg",
+    "range": "800 m",
+    "rateOfFire": "500-600 strz./min",
+    "magazineCapacity": "47-49",
+    "minShots": 20,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/DPM_info.png"
   },
   {
     "slug": "mp40",
@@ -1353,7 +2024,13 @@
     "caliber": "9mm Para",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.72 kg",
+    "range": "150 m",
+    "rateOfFire": null,
+    "magazineCapacity": 32,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/mp40_opis.png"
   },
   {
     "slug": "mosin",
@@ -1365,7 +2042,13 @@
     "caliber": "7.62x54mmR",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "4 kg",
+    "range": "800 m",
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/mosin_opis.png"
   },
   {
     "slug": "kar98",
@@ -1377,7 +2060,13 @@
     "caliber": "7.92x57 Mauser",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "4.1 kg",
+    "range": "1000 m",
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/kar98_info.png"
   },
   {
     "slug": "enfield",
@@ -1389,7 +2078,13 @@
     "caliber": ".303 British",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.96 kg",
+    "range": "500 m",
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/enfield_info.png"
   },
   {
     "slug": "garand",
@@ -1401,7 +2096,13 @@
     "caliber": ".30-06",
     "pricePLN": 15,
     "priceEUR": 3.45,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "4.32 kg",
+    "range": "750 m",
+    "rateOfFire": null,
+    "magazineCapacity": 8,
+    "minShots": 8,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/garand_info.png"
   },
   {
     "slug": "m1",
@@ -1413,7 +2114,13 @@
     "caliber": ".30 Carbine",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "2.4 kg",
+    "range": "270 m",
+    "rateOfFire": null,
+    "magazineCapacity": "15-30",
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/m1_opis.png"
   },
   {
     "slug": "cz527",
@@ -1425,7 +2132,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "2.9 kg",
+    "range": "1000 m",
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/cz527_info.png"
   },
   {
     "slug": "marlin",
@@ -1437,7 +2150,13 @@
     "caliber": ".44 Magnum",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.18 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 6,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/marlin_info.png"
   },
   {
     "slug": "daniel",
@@ -1449,7 +2168,13 @@
     "caliber": "7.62x54mmR",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": null,
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": null,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/daniel_opis.png"
   },
   {
     "slug": "mosin_hunter",
@@ -1461,7 +2186,13 @@
     "caliber": "7.62x54mmR",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.9 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/mosin_hunter_info.png"
   },
   {
     "slug": "sks",
@@ -1473,7 +2204,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.86 kg",
+    "range": "1000 m",
+    "rateOfFire": "35-40 strz./min",
+    "magazineCapacity": 10,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sks_opis.png"
   },
   {
     "slug": "dragunov",
@@ -1485,7 +2222,13 @@
     "caliber": "7.62x54mmR",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "4.3 kg",
+    "range": "800 m",
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/dragunov_opis.png"
   },
   {
     "slug": "aug",
@@ -1497,7 +2240,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.6 kg",
+    "range": "300 m",
+    "rateOfFire": "680-750 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/aug_info.png"
   },
   {
     "slug": "tavor",
@@ -1509,7 +2258,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.27 kg",
+    "range": "550 m",
+    "rateOfFire": "750 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/tavor_info.png"
   },
   {
     "slug": "grot_bull",
@@ -1521,7 +2276,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.53 kg",
+    "range": null,
+    "rateOfFire": "700-750 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/grot_bull_opis.png"
   },
   {
     "slug": "grot",
@@ -1533,7 +2294,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.7 kg",
+    "range": null,
+    "rateOfFire": "700-750 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/grot_info.png"
   },
   {
     "slug": "bwidow",
@@ -1545,7 +2312,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": null,
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/bwidow_info.png"
   },
   {
     "slug": "carmel",
@@ -1557,7 +2330,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.3 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/carmel_info.png"
   },
   {
     "slug": "csv",
@@ -1569,7 +2348,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.1 kg",
+    "range": null,
+    "rateOfFire": null,
+    "magazineCapacity": "17-30",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/csv_info.png"
   },
   {
     "slug": "cz557",
@@ -1581,7 +2366,13 @@
     "caliber": ".30-06",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.3 kg",
+    "range": "750 m",
+    "rateOfFire": null,
+    "magazineCapacity": 5,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/cz557_info.png"
   },
   {
     "slug": "savage_xp",
@@ -1593,7 +2384,13 @@
     "caliber": "7.62x51mm NATO",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.35 kg",
+    "range": "460 m",
+    "rateOfFire": null,
+    "magazineCapacity": 4,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/savage_xp_info.png"
   },
   {
     "slug": "axis_precision",
@@ -1605,7 +2402,13 @@
     "caliber": "7.62x51mm NATO",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "4.45 kg",
+    "range": "460 m",
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 5,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/axis_precision_info.png"
   },
   {
     "slug": "fg9",
@@ -1617,7 +2420,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.18 kg",
+    "range": "200 m",
+    "rateOfFire": null,
+    "magazineCapacity": 10,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/fg9_info.png"
   },
   {
     "slug": "gatling",
@@ -1629,7 +2438,13 @@
     "caliber": "9mm Para",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "30 kg",
+    "range": "200 m",
+    "rateOfFire": null,
+    "magazineCapacity": 33,
+    "minShots": 30,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/gatling_info.png"
   },
   {
     "slug": "akms_auto",
@@ -1641,7 +2456,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.42 kg",
+    "range": "3000 m",
+    "rateOfFire": "600 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/akms_auto_opis.png"
   },
   {
     "slug": "ak47",
@@ -1653,7 +2474,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.8 kg",
+    "range": "3000 m",
+    "rateOfFire": "600 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/ak47_opis.png"
   },
   {
     "slug": "beryl",
@@ -1665,7 +2492,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.52 kg",
+    "range": "600 m",
+    "rateOfFire": "700 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/beryl_opis.png"
   },
   {
     "slug": "smarownica",
@@ -1677,7 +2510,13 @@
     "caliber": ".45 ACP",
     "pricePLN": 10,
     "priceEUR": 2.3,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.7 kg",
+    "range": "50 m",
+    "rateOfFire": "450 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/smarownica_info.png"
   },
   {
     "slug": "tommy",
@@ -1689,7 +2528,13 @@
     "caliber": ".45 ACP",
     "pricePLN": 7,
     "priceEUR": 1.61,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "4.9 kg",
+    "range": "50 m",
+    "rateOfFire": "700 strz./min (seria)",
+    "magazineCapacity": "20-30",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/tommy_opis.png"
   },
   {
     "slug": "suomi",
@@ -1701,7 +2546,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "4.6 kg",
+    "range": "200 m",
+    "rateOfFire": "900 strz./min (seria)",
+    "magazineCapacity": "20-70",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/suomi_info.png"
   },
   {
     "slug": "pepesza",
@@ -1713,7 +2564,13 @@
     "caliber": "7.62x25 Tokarev",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "4.15 kg",
+    "range": "200 m",
+    "rateOfFire": "1000 strz./min (seria)",
+    "magazineCapacity": "35-71",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/pepesza_opis.png"
   },
   {
     "slug": "PPS",
@@ -1725,7 +2582,13 @@
     "caliber": "7.62x25 Tokarev",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.65 kg",
+    "range": "200 m",
+    "rateOfFire": "500-600 strz./min (seria)",
+    "magazineCapacity": 35,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/PPS_opis.png"
   },
   {
     "slug": "uzi9mm",
@@ -1737,7 +2600,13 @@
     "caliber": "9mm Para",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.4 kg",
+    "range": "200 m",
+    "rateOfFire": "600 strz./min",
+    "magazineCapacity": "25-32",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/uzi9mm_opis.png"
   },
   {
     "slug": "pm84",
@@ -1749,7 +2618,13 @@
     "caliber": "9mm Para",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "1.84 kg",
+    "range": "150 m",
+    "rateOfFire": "600 strz./min",
+    "magazineCapacity": "15-25",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/pm84_opis.png"
   },
   {
     "slug": "miniberyl",
@@ -1761,7 +2636,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3 kg",
+    "range": "500 m",
+    "rateOfFire": "700 strz./min (seria)",
+    "magazineCapacity": "20-30",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/miniberyl_opis.png"
   },
   {
     "slug": "rkmd",
@@ -1773,7 +2654,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "8 kg",
+    "range": "2000 m",
+    "rateOfFire": "600 strz./min",
+    "magazineCapacity": "30-75",
+    "minShots": 20,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/rkmd_info.png"
   },
   {
     "slug": "rpk",
@@ -1785,7 +2672,13 @@
     "caliber": "7.62x39mm",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "5 kg",
+    "range": "3000 m",
+    "rateOfFire": "600 strz./min (seria)",
+    "magazineCapacity": "30-75",
+    "minShots": 20,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/rpk_info.png"
   },
   {
     "slug": "PKM",
@@ -1797,7 +2690,13 @@
     "caliber": "7.62x54mmR",
     "pricePLN": 12,
     "priceEUR": 2.76,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "7.5 kg",
+    "range": "3800 m",
+    "rateOfFire": "650 strz./min",
+    "magazineCapacity": "100-250",
+    "minShots": 20,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/PKM_info.png"
   },
   {
     "slug": "goriunov",
@@ -1809,7 +2708,13 @@
     "caliber": "7.62x54mmR",
     "pricePLN": 9,
     "priceEUR": 2.07,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "13.8 kg",
+    "range": "3500 m",
+    "rateOfFire": "350 strz./min",
+    "magazineCapacity": "50-250",
+    "minShots": 20,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/goriunov_info.png"
   },
   {
     "slug": "rak",
@@ -1821,7 +2726,13 @@
     "caliber": "9mm Makarov",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "6.4 kg",
+    "range": "800 m",
+    "rateOfFire": "600 strz./min",
+    "magazineCapacity": "25-40",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/rak_info.png"
   },
   {
     "slug": "pompiczka",
@@ -1833,7 +2744,13 @@
     "caliber": ".45 ACP",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.3 kg",
+    "range": "200 m",
+    "rateOfFire": "650 strz./min (seria)",
+    "magazineCapacity": 32,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/pompiczka_info.png"
   },
   {
     "slug": "yugopepesza",
@@ -1845,7 +2762,13 @@
     "caliber": "7.62x25 Tokarev",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.8 kg",
+    "range": "200 m",
+    "rateOfFire": "750 strz./min (seria)",
+    "magazineCapacity": 35,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/yugopepesza_info.png"
   },
   {
     "slug": "jugoszmajser",
@@ -1857,7 +2780,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3 kg",
+    "range": "200 m",
+    "rateOfFire": "600 strz./min (seria)",
+    "magazineCapacity": 35,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/jugoszmajser_info.png"
   },
   {
     "slug": "solothurnmp34",
@@ -1869,7 +2798,13 @@
     "caliber": "9mm Para",
     "pricePLN": 20,
     "priceEUR": 4.6,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "4.2 kg",
+    "range": "200 m",
+    "rateOfFire": "500 strz./min",
+    "magazineCapacity": 32,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/solothurnmp34_info.png"
   },
   {
     "slug": "sten",
@@ -1881,7 +2816,13 @@
     "caliber": "9mm Para",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "2.9 kg",
+    "range": "150 m",
+    "rateOfFire": "540-575 strz./min",
+    "magazineCapacity": 32,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sten_info.png"
   },
   {
     "slug": "scorpion",
@@ -1893,7 +2834,13 @@
     "caliber": "9mm Para",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "2.1 kg",
+    "range": null,
+    "rateOfFire": "1100 strz./min",
+    "magazineCapacity": "20-30",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/scorpion_opis.png"
   },
   {
     "slug": "mp5",
@@ -1905,7 +2852,13 @@
     "caliber": "9mm Para",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "2.54 kg",
+    "range": "200 m",
+    "rateOfFire": "800 strz./min",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/mp5_opis.png"
   },
   {
     "slug": "smt9",
@@ -1917,7 +2870,13 @@
     "caliber": "9mm Para",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.55 kg",
+    "range": null,
+    "rateOfFire": "750 strz./min",
+    "magazineCapacity": "10-30",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/smt9_info.png"
   },
   {
     "slug": "sog",
@@ -1929,7 +2888,13 @@
     "caliber": "9mm Para",
     "pricePLN": 3,
     "priceEUR": 0.69,
-    "explicitPrice": false
+    "explicitPrice": false,
+    "weight": "3.5 kg",
+    "range": "200 m",
+    "rateOfFire": "700 strz./min",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/sog_info.png"
   },
   {
     "slug": "g18",
@@ -1941,7 +2906,13 @@
     "caliber": "9mm Para",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "624 g",
+    "range": "50 m",
+    "rateOfFire": "1200 strz./min",
+    "magazineCapacity": "17-33",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/g18_info.png"
   },
   {
     "slug": "ingram",
@@ -1953,7 +2924,13 @@
     "caliber": "9mm Short",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "1590 g",
+    "range": "50 m",
+    "rateOfFire": "1200 strz./min",
+    "magazineCapacity": "16-32",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/ingram_info.png"
   },
   {
     "slug": "skorpion",
@@ -1965,7 +2942,13 @@
     "caliber": "7.65 Browning",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "1.28 kg",
+    "range": "50 m",
+    "rateOfFire": "800 strz./min",
+    "magazineCapacity": "10-20",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/skorpion_info.png"
   },
   {
     "slug": "grotauto",
@@ -1977,7 +2960,13 @@
     "caliber": ".223 Rem",
     "pricePLN": 8,
     "priceEUR": 1.84,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "3.7 kg",
+    "range": null,
+    "rateOfFire": "700-750 strz./min (seria)",
+    "magazineCapacity": 30,
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/grotauto_info.png"
   },
   {
     "slug": "aug9",
@@ -1989,7 +2978,13 @@
     "caliber": "9mm Para",
     "pricePLN": 5,
     "priceEUR": 1.15,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "2.97 kg",
+    "range": null,
+    "rateOfFire": "650-720 strz./min (seria)",
+    "magazineCapacity": "25-32",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/aug9_info.png"
   },
   {
     "slug": "miniuzi",
@@ -2001,7 +2996,13 @@
     "caliber": "9mm Para",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "2.65 kg",
+    "range": "200 m",
+    "rateOfFire": "950 strz./min",
+    "magazineCapacity": "20-32",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/miniuzi_info.png"
   },
   {
     "slug": "kp44",
@@ -2013,6 +3014,12 @@
     "caliber": "9mm Para",
     "pricePLN": 6,
     "priceEUR": 1.38,
-    "explicitPrice": true
+    "explicitPrice": true,
+    "weight": "2.9 kg",
+    "range": "150-200 m",
+    "rateOfFire": "650 strz./min",
+    "magazineCapacity": "20-71",
+    "minShots": 10,
+    "infoImage": "https://www.pmshooter.pl/images/arsenal_info/kp44_info.png"
   }
 ]

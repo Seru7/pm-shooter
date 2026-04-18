@@ -4,8 +4,8 @@
     {
       "name": "pm-shooter",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8765"],
-      "port": 8765
+      "runtimeArgs": ["-m", "http.server", "8099"],
+      "port": 8099
     }
   ]
 }

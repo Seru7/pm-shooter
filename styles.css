@@ -839,3 +839,168 @@ footer p + p { margin-top: 6px; }
   .card-pack-label { font-size: 11px; }
   .btn-pack { font-size: 13px; padding: 9px 10px; }
 }
+
+/* --- Card specs row --- */
+.card-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+}
+.card-specs .spec {
+  font-size: 11px;
+  color: var(--text-dim);
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+/* --- Min shots notice --- */
+.card-min-shots {
+  display: block;
+  font-size: 11px;
+  color: var(--accent);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* --- Card image clickable --- */
+.card-img {
+  cursor: pointer;
+}
+.card-name {
+  cursor: pointer;
+}
+.card-name:hover {
+  color: var(--accent);
+}
+
+/* --- Weapon detail modal --- */
+.weapon-detail-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.15s ease;
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+.weapon-detail-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  position: relative;
+}
+.detail-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 22px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.detail-close:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.detail-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.detail-img {
+  width: 120px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.3);
+  flex-shrink: 0;
+}
+.detail-title-block {
+  flex: 1;
+  min-width: 0;
+}
+.detail-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+.detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.detail-badges .badge.section {
+  background: rgba(255,107,26,0.15);
+  color: var(--accent);
+}
+.detail-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.detail-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.detail-spec-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.detail-spec-label {
+  display: block;
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.detail-spec-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+.detail-official-link {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 0;
+  font-weight: 500;
+}
+.detail-official-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .weapon-detail-panel { padding: 18px; }
+  .detail-header { flex-direction: column; align-items: center; text-align: center; }
+  .detail-img { width: 160px; height: 120px; }
+  .detail-badges { justify-content: center; }
+  .detail-specs-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+}

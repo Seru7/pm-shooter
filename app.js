@@ -85,6 +85,14 @@ const I18N = {
     footerAsterisk: '<strong>*</strong> El precio marcado con asterisco es inferido a partir del precio base del calibre (no está nombrado explícitamente en la oferta oficial). Confirmar en el campo de tiro antes de disparar.',
     footerSource: 'Precios en PLN oficiales extraídos de <a href="https://www.pmshooter.pl/index.php/pl/oferta" target="_blank" rel="noopener">pmshooter.pl/oferta</a>. Conversión EUR en tiempo real vía frankfurter.dev. Imágenes propiedad de PM Shooter Warsaw.',
     footerProject: 'Proyecto personal · <a href="https://github.com/Seru7/pm-shooter" target="_blank" rel="noopener">código en GitHub</a>',
+    detailWeight: 'Peso',
+    detailRange: 'Alcance',
+    detailRof: 'Cadencia',
+    detailMag: 'Cargador',
+    detailMin: 'Mín. disparos',
+    detailClose: 'Cerrar',
+    detailOfficialInfo: 'Ficha oficial',
+    minShotsNotice: 'Mínimo {min} disparos',
   },
   en: {
     pageTitle: 'PM Shooter — Weapon catalog and prices',
@@ -145,6 +153,14 @@ const I18N = {
     footerAsterisk: '<strong>*</strong> Prices marked with an asterisk are inferred from the base caliber price (not explicitly named in the official offer). Confirm at the range before shooting.',
     footerSource: 'Official PLN prices extracted from <a href="https://www.pmshooter.pl/index.php/pl/oferta" target="_blank" rel="noopener">pmshooter.pl/oferta</a>. Live EUR conversion via frankfurter.dev. Images property of PM Shooter Warsaw.',
     footerProject: 'Personal project · <a href="https://github.com/Seru7/pm-shooter" target="_blank" rel="noopener">source on GitHub</a>',
+    detailWeight: 'Weight',
+    detailRange: 'Range',
+    detailRof: 'Rate of fire',
+    detailMag: 'Magazine',
+    detailMin: 'Min. shots',
+    detailClose: 'Close',
+    detailOfficialInfo: 'Official info',
+    minShotsNotice: 'Minimum {min} shots',
   },
   pl: {
     pageTitle: 'PM Shooter — Katalog broni i cen',
@@ -205,6 +221,14 @@ const I18N = {
     footerAsterisk: '<strong>*</strong> Ceny oznaczone gwiazdką są szacowane na podstawie ceny bazowej kalibru (nie są wyraźnie wymienione w oficjalnej ofercie). Potwierdź cenę na strzelnicy przed strzelaniem.',
     footerSource: 'Oficjalne ceny w PLN pochodzą z <a href="https://www.pmshooter.pl/index.php/pl/oferta" target="_blank" rel="noopener">pmshooter.pl/oferta</a>. Kurs EUR na żywo przez frankfurter.dev. Zdjęcia należą do PM Shooter Warszawa.',
     footerProject: 'Projekt osobisty · <a href="https://github.com/Seru7/pm-shooter" target="_blank" rel="noopener">kod źródłowy na GitHub</a>',
+    detailWeight: 'Masa',
+    detailRange: 'Zasięg',
+    detailRof: 'Szybkostrzelność',
+    detailMag: 'Magazynek',
+    detailMin: 'Min. strzałów',
+    detailClose: 'Zamknij',
+    detailOfficialInfo: 'Oficjalna karta',
+    minShotsNotice: 'Minimum {min} strzałów',
   },
 };
 
@@ -453,8 +477,11 @@ async function init() {
     const addBtn = e.target.closest('[data-action="add-to-pack"]');
     if (addBtn) {
       const slug = addBtn.dataset.slug;
+      const w = state.weapons.find(x => x.slug === slug);
+      const minS = w?.minShots || 1;
       const input = gridEl.querySelector(`input[data-shots-for="${slug}"]`);
-      const shots = Math.max(1, parseInt(input?.value, 10) || 10);
+      const shots = Math.max(minS, parseInt(input?.value, 10) || minS);
+      if (input) input.value = shots;
       state.pack[slug] = shots;
       savePack();
       renderPack();
@@ -468,12 +495,21 @@ async function init() {
       renderPack();
       renderCardPackStatus(removeBtn.dataset.slug);
     }
+    // Click on card image or name → open detail modal
+    const cardImg = e.target.closest('.card-img');
+    const cardName = e.target.closest('.card-name');
+    if (cardImg || cardName) {
+      const card = e.target.closest('.card[data-slug]');
+      if (card) openWeaponDetail(card.dataset.slug);
+    }
   });
   gridEl.addEventListener('change', e => {
     const inp = e.target.closest('input[data-shots-for]');
     if (!inp) return;
     const slug = inp.dataset.shotsFor;
-    const val = Math.max(1, parseInt(inp.value, 10) || 1);
+    const w = state.weapons.find(x => x.slug === slug);
+    const minS = w?.minShots || 1;
+    const val = Math.max(minS, parseInt(inp.value, 10) || minS);
     inp.value = val;
     if (state.pack[slug] !== undefined) {
       state.pack[slug] = val;
@@ -534,7 +570,9 @@ async function init() {
     const inp = e.target.closest('input[data-pack-shots]');
     if (!inp) return;
     const slug = inp.dataset.packShots;
-    const val = Math.max(1, parseInt(inp.value, 10) || 1);
+    const w = state.weapons.find(x => x.slug === slug);
+    const minS = w?.minShots || 1;
+    const val = Math.max(minS, parseInt(inp.value, 10) || minS);
     inp.value = val;
     state.pack[slug] = val;
     savePack();
@@ -626,17 +664,23 @@ function cardHtml(w) {
   const inPack = state.pack[w.slug] !== undefined;
   if (inPack) classes.push('in-pack');
 
-  const currentShots = inPack ? state.pack[w.slug] : 10;
+  const minS = w.minShots || 1;
+  const currentShots = inPack ? state.pack[w.slug] : Math.max(minS, 10);
 
   const priceHtml = hasPrice
     ? `<div class="price-main">${formatMain(w.pricePLN)}${!w.explicitPrice ? '<span class="asterisk">*</span>' : ''}<span class="price-unit">${t('perShot')}</span></div>`
     : `<div class="price-main no-data">${t('askPrice')}</div>`;
 
+  const minNotice = minS > 1
+    ? `<span class="card-min-shots">${t('minShotsNotice').replace('{min}', minS)}</span>`
+    : '';
+
   const packControlsHtml = hasPrice
     ? `<div class="card-pack">
          <div class="card-pack-shots">
-           <input type="number" min="1" max="999" value="${currentShots}" data-shots-for="${w.slug}" aria-label="${t('shotsLabel')}">
+           <input type="number" min="${minS}" max="999" value="${currentShots}" data-shots-for="${w.slug}" aria-label="${t('shotsLabel')}">
            <span class="card-pack-label">${t('shotsLabel')}</span>
+           ${minNotice}
          </div>
          ${inPack
            ? `<button type="button" class="btn-pack btn-remove" data-action="remove-from-pack" data-slug="${w.slug}">${t('inPackRemove')}</button>`
@@ -655,11 +699,86 @@ function cardHtml(w) {
           <span class="badge cat">${escapeHtml(tCategory(w.category))}</span>
           <span class="badge cal">${escapeHtml(w.caliber)}</span>
         </div>
+        <div class="card-specs">
+          ${w.weight ? `<span class="spec" title="${t('detailWeight')}">⚖ ${w.weight}</span>` : ''}
+          ${w.range ? `<span class="spec" title="${t('detailRange')}">🎯 ${w.range}</span>` : ''}
+          ${w.rateOfFire ? `<span class="spec" title="${t('detailRof')}">🔥 ${w.rateOfFire}</span>` : ''}
+          ${w.magazineCapacity ? `<span class="spec" title="${t('detailMag')}">📦 ${w.magazineCapacity}</span>` : ''}
+        </div>
         <div class="card-price">${priceHtml}</div>
         ${packControlsHtml}
       </div>
     </article>
   `;
+}
+
+// ---------- Weapon detail modal ----------
+function openWeaponDetail(slug) {
+  const w = state.weapons.find(x => x.slug === slug);
+  if (!w) return;
+  // Remove any existing modal
+  document.getElementById('weaponDetailModal')?.remove();
+
+  const specs = [
+    { label: t('detailWeight'), value: w.weight },
+    { label: t('detailRange'), value: w.range },
+    { label: t('detailRof'), value: w.rateOfFire },
+    { label: t('detailMag'), value: w.magazineCapacity },
+    { label: t('detailMin'), value: w.minShots ? String(w.minShots) : null },
+  ].filter(s => s.value);
+
+  const priceLabel = w.pricePLN != null
+    ? `${formatMain(w.pricePLN)}${!w.explicitPrice ? '*' : ''} ${t('perShot')}`
+    : t('askPrice');
+
+  const infoLink = w.infoImage
+    ? `<a href="${w.infoImage}" target="_blank" rel="noopener" class="detail-official-link">${t('detailOfficialInfo')} ↗</a>`
+    : '';
+
+  const modal = document.createElement('div');
+  modal.id = 'weaponDetailModal';
+  modal.className = 'weapon-detail-overlay';
+  modal.innerHTML = `
+    <div class="weapon-detail-panel" role="dialog" aria-label="${escapeAttr(w.name)}">
+      <button type="button" class="detail-close" aria-label="${t('detailClose')}">✕</button>
+      <div class="detail-header">
+        <img src="${w.image}" alt="${escapeAttr(w.name)}" class="detail-img">
+        <div class="detail-title-block">
+          <h2 class="detail-name">${escapeHtml(w.name)}</h2>
+          <div class="detail-badges">
+            <span class="badge cat">${escapeHtml(tCategory(w.category))}</span>
+            <span class="badge cal">${escapeHtml(w.caliber)}</span>
+            <span class="badge section">${escapeHtml(tSectionLabel(w.section))}</span>
+          </div>
+          <div class="detail-price">${priceLabel}</div>
+        </div>
+      </div>
+      <div class="detail-specs-grid">
+        ${specs.map(s => `
+          <div class="detail-spec-item">
+            <span class="detail-spec-label">${s.label}</span>
+            <span class="detail-spec-value">${s.value}</span>
+          </div>
+        `).join('')}
+      </div>
+      ${infoLink}
+    </div>
+  `;
+
+  // Close handlers
+  modal.addEventListener('click', e => {
+    if (e.target === modal || e.target.closest('.detail-close')) {
+      modal.remove();
+    }
+  });
+  document.addEventListener('keydown', function escHandler(e) {
+    if (e.key === 'Escape') {
+      modal.remove();
+      document.removeEventListener('keydown', escHandler);
+    }
+  });
+
+  document.body.appendChild(modal);
 }
 
 function renderCardPackStatus(slug) {
